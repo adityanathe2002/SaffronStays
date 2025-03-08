@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { staysContext } from "../AppContext/TentsContext";
 
 const Search = () => {
-    const { ratings, setRatings, sortPrice, setSortPrice, sortAmenities, setSortAmenities, sortLocation, setSortLocation } = useContext(staysContext);
+    const { ratings, setRatings, sortPrice, setSortPrice, sortAmenities, setSortAmenities, sortLocation, setSortLocation, theme } = useContext(staysContext);
     const [activeTab, setActiveTab] = useState(0); // Track active tab
 
     const ratingsObj = ["4.5 & above", "4.0 & above", "3.5 & above", "3.0 & above"];
@@ -100,7 +100,7 @@ const Search = () => {
                 </Box>
             </Box>
             <Box sx={{ width:"100%", display:"flex",justifyContent:"end", gap:2 }}>
-                <Button variant="outlined" sx={{color:"black", border:"1px solid black"}} onClick={handleClearBtn} >Clear All</Button>
+                <Button variant="outlined" sx={{color:theme ==='dark' ?"white" : "black", border:"1px solid black"}} onClick={handleClearBtn} >Clear All</Button>
             </Box>
         </Box>
     );

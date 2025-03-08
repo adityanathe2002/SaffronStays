@@ -14,12 +14,13 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { staysContext } from '../../AppContext/TentsContext';
 import axios from 'axios';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import toast from 'react-hot-toast';
 
 
 const ProductDetailSection1 = () => {
     const location = useLocation();
     const { val, stayType } = location.state || {};
-    const { addBookmark, setAddBookmark, addCart, setAddCart } = useContext(staysContext);
+    const { addBookmark, setAddBookmark, addCart, setAddCart, theme } = useContext(staysContext);
     const [selectedImage, setSelectedImage] = useState(val?.about?.images[0] || "");
     const freeServices = val?.freeServices || [];
 
@@ -40,11 +41,11 @@ const ProductDetailSection1 = () => {
             const cartItems = cartResponse.data;
 
             // Corrected check: Find if a stay with the same stayType and id exists
-            const existingStay = cartItems.find(data => data.stayType === val.stayType && data.id === val.id);
+            const existingStay = cartItems.find(data => data.stayType === stayType && data.id === val.id);
 
             if (existingStay) {
                 // Stay already in cart
-                alert(`${val.campName} is already in the cart!`);
+                toast.error(`${val.campName} is already in the cart!`);
             } else {
                 // Add stay to cart
                 const addResponse = await axios.post('http://localhost:5000/cart', {
@@ -74,50 +75,45 @@ const ProductDetailSection1 = () => {
                     transportation: val.transportation,
                     healthAndSafety: val.healthAndSafety,
                     uniqueFeatures: val.uniqueFeatures,
-                    stayType: val.stayType, // Fixed variable usage
+                    stayType: stayType, // Fixed variable usage
                     quantity: 1,
                 });
 
                 // Show success or error messages
                 if (addResponse.status === 200 || addResponse.status === 201) {
-                    alert(`${val.campName} added to cart successfully!`);
+                    toast.success(`${val.campName} added to cart successfully!`);
                 } else {
-                    alert(`Failed to add ${val.campName} to cart.`);
+                    toast.error(`Failed to add ${val.campName} to cart.`);
                 }
             }
         } catch (error) {
             console.error('Error managing cart:', error);
-            alert('Something went wrong. Please try again.');
+            toast.error('Something went wrong. Please try again.');
         }
     };
-
-
 
     const toggleBookmark = async (val) => {
         try {
             let updatedBookmark = [...addBookmark];
-            const isBookmark = addBookmark.includes(val.stayType); // Check if already bookmarked
-            // const isBookmark = addBookmark.some(bookmark => bookmark.id === val.id && bookmark.stayType === val.stayType);
-
-            console.log(isBookmark);
-
+            // const isBookmark = addBookmark.includes(val.stayType); // Check if already bookmarked
+            const isBookmark = addBookmark.some(bookmark => bookmark.id === val.id && bookmark.stayType === stayType);
 
             if (isBookmark) {
                 // Remove from bookmark
-                const response = await axios.delete(`http://localhost:5000/bookmark/${val.id}`);
+                const response = await axios.delete(`http://localhost:5000/bookmark/${val.id && val.stayType}`);
                 if (response.status === 200) {
-                    updatedBookmark = updatedBookmark.filter((item) => item !== val.stayType); // Correct removal
+                    updatedBookmark = updatedBookmark.filter((item) => item !== val.stayType  ); // Correct removal
                     setAddBookmark(updatedBookmark);
                 } else {
-                    alert("Failed to remove from bookmark. Please try again.");
+                    toast.error("Failed to remove from bookmark. Please try again.");
                 }
             } else {
                 // Fetch existing bookmarks from backend
                 const { data: existingBookmark } = await axios.get("http://localhost:5000/bookmark");
 
                 // Check if the exact stayType & id already exist in the backend
-                if (existingBookmark.some((item) => item.stayType === val.stayType && item.id === val.id)) {
-                    alert("This Stay is already in your Bookmark!");
+                if (existingBookmark.find((item) => item.stayType === stayType && item.id === val.id)) {
+                    toast.error("This Stay is already in your Bookmark!");
                     return;
                 }
 
@@ -149,7 +145,7 @@ const ProductDetailSection1 = () => {
                     transportation: val.transportation,
                     healthAndSafety: val.healthAndSafety,
                     uniqueFeatures: val.uniqueFeatures,
-                    stayType: val.stayType,
+                    stayType:stayType,
                     quantity: 1,
                 });
 
@@ -157,14 +153,16 @@ const ProductDetailSection1 = () => {
                     updatedBookmark.push(val.stayType);
                     setAddBookmark(updatedBookmark);
                 } else {
-                    alert("Failed to add to Bookmark. Please try again.");
+                    toast.error("Failed to add to Bookmark. Please try again.");
                 }
             }
         } catch (error) {
             console.error('Error updating Bookmark:', error);
-            alert('Something went wrong. Please try again.');
+            toast.error('Something went wrong. Please try again.');
         }
     };
+    
+    
 
     // Fetch bookmarked stays on component mount
     useEffect(() => {
@@ -280,25 +278,25 @@ const ProductDetailSection1 = () => {
                     <Typography variant="h6" sx={{ textDecoration: "line-through", color: "gray" }}> ₹{val?.prices?.actual} </Typography>
                 </Box>
                 {/* Address */}
-                <Box sx={{ width: "100%", height: "auto", backgroundColor: "white", border: "1px solid black", borderRadius: "10px", mt: 3, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <Box sx={{pt:3,pb:3,pl:1 ,width: "100%", height: "auto",bgcolor: theme === 'dark'? '#292A2D' : 'white',color: theme === "dark" ? "white" : "black", borderRadius: "10px", mt: 3, display: "flex", flexDirection: "column", justifyContent: "center" }}>
                     <Box sx={{ display: "flex", gap: 2, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700" }}>Address</Typography>
-                        <Typography sx={{ border: "1px solid gray", borderRadius: "30px", pl: 1, pr: 1, color: "#5B7830", backgroundColor: "#F5F5F5" }}> {val?.address?.tal}-{val?.address?.dist} </Typography>
-                        <Typography sx={{ color: "#5B7830", width: "30px", height: "30px", textAlign: "center", border: "1px solid gray", borderRadius: "50%", backgroundColor: "#F5F5F5" }}> <LocationOnIcon /> </Typography>
+                        <Typography sx={{ fontWeight: "700" ,color: theme === "dark" ? "white" : "black",}}>Address:</Typography>
+                        <Typography sx={{  color:theme==='dark' ?"white":"#5B7830" }}> {val?.address?.tal}-{val?.address?.dist} </Typography>
+                        <Typography sx={{ color:theme==='dark' ?"white":"#5B7830"  }}> <LocationOnIcon /> </Typography>
                     </Box>
                     <Box sx={{ display: "flex", gap: 1, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700" }}>Activities</Typography>
+                        <Typography sx={{ fontWeight: "700",color: theme === "dark" ? "white" : "black", }}>Activities:</Typography>
                         <Typography sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                             {val?.activitiesDetails?.map((val, i) => (
-                                <Typography key={i} sx={{ border: "1px solid gray", borderRadius: "30px", pl: 1, pr: 1, color: "#5B7830", backgroundColor: "#F5F5F5" }}> {val?.name}</Typography>
+                                <Typography key={i} sx={{  color:theme==='dark' ?"white":"#5B7830", }}> {val?.name}</Typography>
                             ))}
                         </Typography>
                     </Box>
                     <Box sx={{ width: "100%", height: "auto", display: "flex", gap: 0.5, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700", width: "150px" }}>Local Attractions</Typography>
+                        <Typography sx={{ fontWeight: "700", width: "150px",color: theme === "dark" ? "white" : "black", }}>Local Attractions:</Typography>
                         <Typography sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                             {val?.localAttractions?.map((val, i) => (
-                                <Typography key={i} sx={{ border: "1px solid gray", borderRadius: "30px", pl: 0.5, pr: 0.5, color: "#5B7830", backgroundColor: "#F5F5F5" }}> {val?.name}</Typography>
+                                <Typography key={i} sx={{  color:theme==='dark' ?"white":"#5B7830",}}> {val?.name}</Typography>
                             ))}
                         </Typography>
                     </Box>
@@ -306,9 +304,9 @@ const ProductDetailSection1 = () => {
                 {/* Special Packages */}
                 <Box sx={{ mt: 3 }}>
                     <Typography sx={{ fontWeight: "700", mb: 1 }}>Special Packages</Typography>
-                    <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box sx={{ display: "flex", gap: 2,color:"black" }}>
                         {val?.specialPackages?.map((val, i) => (
-                            <Box key={i} sx={{ backgroundColor: "white", width: { xs: "33%", lg: "32%" }, height: "12vh", border: "1px solid gray", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: { xs: "center", lg: "center" }, justifyContent: "center" }}>
+                            <Box key={i} sx={{ bgcolor: theme === 'dark'? '#292A2D' : 'white',color: theme === "dark" ? "white" : "balck", width: { xs: "33%", lg: "32%" }, height: "12vh",borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: { xs: "center", lg: "center" }, justifyContent: "center",p:2 }}>
                                 <Typography sx={{ textAlign: "center" }}> {val.name} </Typography>
                                 <Typography sx={{ fontWeight: "700" }}> ₹ {val.price} </Typography>
                             </Box>
@@ -320,14 +318,14 @@ const ProductDetailSection1 = () => {
                     <Button
                         variant="contained"
                         onClick={() => handleAddToCart(val)}
-                        sx={{ width: "50%", height: "8vh", backgroundColor: "black", display: "flex", gap: { xs: 0, lg: 2 } }} >
-                        <ShoppingBagIcon sx={{ color: "white" }} />
+                        sx={{ width: "50%", height: "8vh", backgroundColor: theme === "dark" ? "white" : "black",color: theme === "dark" ? "black" : "white", display: "flex", gap: { xs: 0, lg: 2 } }} >
+                        <ShoppingBagIcon sx={{ color: theme === "dark" ? "black" : "white", }} />
                         Book Now
                     </Button>
                     <Button
                         variant="contained"
                         onClick={() => toggleBookmark(val)}
-                        sx={{ width: "50%", height: "8vh", backgroundColor: "black", display: "flex", gap: 2 }}
+                        sx={{ width: "50%", height: "8vh",  backgroundColor: theme === "dark" ? "white" : "black",color: theme === "dark" ? "black" : "white", display: "flex", gap: 2 }}
                     >
                         <BookmarkIcon
                             className={`${addBookmark.includes(val?.stayType) ? "color-white" : "text-gray-400"} transition-colors duration-200`}

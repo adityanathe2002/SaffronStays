@@ -5,3 +5,13 @@
     font-style: normal;
   }
   
+  body.light {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #121212;
+    color: white;
+}

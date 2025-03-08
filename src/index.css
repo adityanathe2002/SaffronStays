@@ -79,3 +79,25 @@
     transform-origin: top
   }
 } */
+
+
+
+body.light {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #202124;
+  color: white;
+} 
+
+.custom-cursor {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}

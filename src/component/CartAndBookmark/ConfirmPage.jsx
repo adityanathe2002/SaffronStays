@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { staysContext } from "../AppContext/TentsContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,7 +13,7 @@ import {
 import toast from "react-hot-toast";
 
 const ConfirmPage = () => {
-  const { bookingData, setBookingData } = useContext(staysContext);
+  const { bookingData, setBookingData, theme , confirmOrder, setConfirmOrder} = useContext(staysContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const ConfirmPage = () => {
 
   const handleConfirm = () => {
     toast.success("Booking Confirmed! ✅");
+    setConfirmOrder(true);
     navigate("/cart");
   };
 
@@ -41,6 +42,7 @@ const ConfirmPage = () => {
         maxWidth: "900px",
         margin: "auto",
         textAlign: "center",
+        
       }}
     >
       <Typography variant="h5" fontWeight="bold" gutterBottom>
@@ -50,7 +52,7 @@ const ConfirmPage = () => {
       <Divider sx={{ marginY: "20px" }} />
 
       {bookingData ? ( // Ensure bookingData is available before rendering
-        <Card sx={{ marginBottom: 2, padding: 2 }}>
+        <Card sx={{ marginBottom: 2, padding: 2, bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : "" }}>
           <CardContent>
             <Typography variant="h6" fontWeight="bold">
               Booking Details

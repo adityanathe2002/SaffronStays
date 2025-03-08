@@ -13,7 +13,7 @@ const HomeSection2 = () => {
       <Typography 
        data-aos="zoom-up"
       data-aos-duration="2000"
-      variant="h5" className="mb-10 bg-amber-100 text-center flex gap-1 items-center justify-center" >
+      variant="h5" className="mb-10  text-center flex gap-1 items-center justify-center" >
        Discover the Touch of Nature  
       </Typography>
       <Box

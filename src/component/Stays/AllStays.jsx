@@ -19,14 +19,19 @@ import AllFarmHouses from './AllFarmHouses';
 import AllTreeHouses from './AllTreeHouses';
 import AllApartments from './AllApartments';
 import AllCottages from './AllCottages';
+import SocialMedia from '../Footer/SocialMedia'
 
 
 const AllStays = () => {
-    const { setSearch } = useContext(staysContext);
+    const { setSearch ,theme} = useContext(staysContext);
     const [value, setValue] = React.useState('1');
     const handleChanges = (event, newValue) => {
         setValue(newValue);
     };
+
+     useEffect(()=>{
+            window.scrollTo({ top: 0, behavior: "smooth" })
+        },[])
 
     return (
         <Box >
@@ -37,7 +42,7 @@ const AllStays = () => {
 
                 {/* Text Content */}
                 <Box
-                    // data-aos="fade-up"
+                    data-aos="fade-up"
                     // data-aos-duration="2000"
                     className="w-full h-full absolute flex flex-col items-center justify-center text-center px-4">
                     <Typography variant="h6" sx={{ fontSize: "15px" }} className="text-sm sm:text-lg text-white"> Home / Category </Typography>
@@ -49,7 +54,7 @@ const AllStays = () => {
 
 
                 <Box
-                    // data-aos="fade-up"
+                    data-aos="fade-up"
                     // data-aos-duration="1000"
                     className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-11/12 sm:w-1/2 rounded-xl px-2 ">
                     <TextField
@@ -88,21 +93,22 @@ const AllStays = () => {
                                 allowScrollButtonsMobile
 
                                 sx={{
+                                    color: theme === "dark" ? "white" : "black" ,
                                     width: '100%',
                                     display: "flex",
                                     flexWrap: { xs: "wrap", sm: "nowrap" }, overflowY: { xs: "auto", sm: "unset" }, maxHeight: { xs: "300px", sm: "none" },
 
                                 }}
                             >
-                                <Tab label="Tents" value="1" />
-                                <Tab label="Homestays" value="2" />
-                                <Tab label="Hotels" value="3" />
-                                <Tab label="Cottages" value="4" />
-                                <Tab label="Farmhouses" value="5" />
-                                <Tab label="Treehouses" value="6" />
-                                <Tab label="Villas" value="7" />
-                                <Tab label="Camps" value="8" />
-                                <Tab label="Apartments" value="9" />
+                                <Tab label="Tents" value="1" sx={{ color: theme === "dark" ? "white" : "black" }}  />
+                                <Tab label="Homestays" value="2"  sx={{ color: theme === "dark" ? "white" : "black" }}  />
+                                <Tab label="Hotels" value="3"  sx={{ color: theme === "dark" ? "white" : "black" }}  />
+                                <Tab label="Cottages" value="4"   sx={{ color: theme === "dark" ? "white" : "black" }} />
+                                <Tab label="Farmhouses" value="5"   sx={{ color: theme === "dark" ? "white" : "black" }} />
+                                <Tab label="Treehouses" value="6"  sx={{ color: theme === "dark" ? "white" : "black" }}  />
+                                <Tab label="Villas" value="7"  sx={{ color: theme === "dark" ? "white" : "black" }}  />
+                                <Tab label="Camps" value="8"   sx={{ color: theme === "dark" ? "white" : "black" }} />
+                                <Tab label="Apartments" value="9"   sx={{ color: theme === "dark" ? "white" : "black" }} />
                             </TabList>
                             <Box sx={{ display: { xs: "none", sm: "flex" }, marginRight: "5%", }}>
                                 {/* <Box sx={{ color: "lightslategray", paddingLeft: "20px", paddingRight: "20px", display: "flex", alignItems: "center" }}> Sort By </Box> */}
@@ -110,15 +116,16 @@ const AllStays = () => {
                         </Box>
                         {/* filters  */}
                         <Accordion
-                            sx={{ marginTop: "5px" }} slotProps={{ heading: { component: 'h4' } }}>
+                            sx={{ marginTop: "5px" }} slotProps={{ heading: { component: 'h4' },     }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1-content"
                                 id="panel1-header"
+                                sx={{color: theme === "dark" ? "white" : "black",bgcolor: theme === 'dark'? '#292A2D' : 'white'}}
                             >
                                 Sort By
                             </AccordionSummary>
-                            <AccordionDetails>
+                            <AccordionDetails sx={{color: theme === "dark" ? "white" : "black",bgcolor: theme === 'dark'? '#292A2D' : 'white'}}>
                                 <Search />
                             </AccordionDetails>
                         </Accordion>
@@ -135,6 +142,7 @@ const AllStays = () => {
                     </TabContext>
                 </Box>
             </Box>
+            
         </Box>
     );
 };

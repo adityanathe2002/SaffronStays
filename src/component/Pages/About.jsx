@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Container, Typography, Grid, Box, Card, CardContent, CardMedia, Button, Paper, Avatar, IconButton, useTheme, useMediaQuery, } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn, LocationOn, Phone, Email, ArrowDownward } from "@mui/icons-material";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AboutHero from "../../assets/About/about.jpg";
-// import AboutHero from "../../assets/About/about3.jpg";
+// import AboutHero from "../../assets/About/about.jpg";
+import AboutHero from "../../assets/About/about5.jpg";
 import toursImg from "../../assets/Hero/toursHero1.jpg";
 import Tent from '../../assets/About/tent.webp'
 import Apartment from '../../assets/About/apartment.webp'
@@ -20,11 +20,13 @@ import HOD from '../../assets/About/arvind-sir.jpg'
 import EMP from '../../assets/About/adi.jpg'
 import Founder from '../../assets/About/kedar-sir.jpg'
 import Hero from '../../assets/HomePage/houseImg.jpg'
-import Aos from "aos";
+import SocialMedia from '../Footer/SocialMedia'
+import { staysContext } from "../AppContext/TentsContext";
 
 const About = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const { theme } = useContext(staysContext);
+    const themes = useTheme();
+    const isMobile = useMediaQuery(themes.breakpoints.down("sm"));
     const [zoom, setZoom] = useState(1);
     useEffect(() => {
         const interval = setInterval(() => {
@@ -140,6 +142,10 @@ const About = () => {
         },
     ];
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }, [])
+
     return (
         <Box className="overflow-hidden mt-1.2">
             {/* Hero Section */}
@@ -150,8 +156,8 @@ const About = () => {
                     opacity: "20",
                     // backgroundSize: zoom,
                     backgroundPosition: "center",
-                    backgroundRepeat:"no-repeat",
-                    backgroundSize:"cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
                     ...transformStyle,
 
                 }}
@@ -159,7 +165,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-opacity-20"></div>
                 <Container maxWidth="lg" className="relative z-10">
                     <Box
-                        className="flex justify-center items-center h-screen relative"
+                        className="flex justify-center top-20 h-screen relative"
                         data-aos="fade-up"
                     >
 
@@ -172,11 +178,7 @@ const About = () => {
                                 position: "absolute",
                                 textAlign: "center",
                                 fontWeight: "800",
-                                background: "linear-gradient(90deg, #FF7E5F, #FD267D, #7F00FF)",
-                                // background: "linear-gradient(90deg, #1E90FF, #00CED1, #7FFFD4)",
-                                // background: "linear-gradient(90deg, #FFD700, #FFA07A, #FF69B4)",
-                                // background: "linear-gradient(90deg, #2E8B57, #5AB9EA)",
-                                // background: "linear-gradient(90deg,  #8B4513, #CD853F, #FFC0CB)",
+                                background: "linear-gradient(90deg,  #8B4513, #CD853F, #FFC0CB)",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                             }}
@@ -267,15 +269,16 @@ const About = () => {
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
                         >
-                            <Card className="h-full rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                            <Card sx={{ bgcolor: theme === 'dark' ? '#292A2D' : 'white', }} className="h-full rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105">
                                 <CardMedia
                                     component="img"
                                     height="200"
                                     image={type.image}
                                     alt={type.title}
                                     className="h-48 object-cover"
+
                                 />
-                                <CardContent>
+                                <CardContent sx={{ bgcolor: theme === 'dark' ? '#292A2D' : 'white', color: theme === 'dark' ? 'white' : '' }}>
                                     <Typography
                                         className="font-semibold mb-1"
                                         variant="h5"
@@ -283,7 +286,7 @@ const About = () => {
                                     >
                                         {type.title}
                                     </Typography>
-                                    <Typography className="text-gray-600" variant="body2">
+                                    <Typography className={` theme ==='dark' ? "text-white :"text-gray-600 " `} variant="body2">
                                         {type.description}
                                     </Typography>
                                 </CardContent>
@@ -294,9 +297,9 @@ const About = () => {
             </Container>
 
             {/* Team Section */}
-            <Box className="bg-gray-50 py-12 md:py-20">
+            <Box className=" py-12 md:py-20" >
                 <Container maxWidth="lg">
-                    <Box className="text-center mb-12" data-aos="fade-up">
+                    <Box className="text-center mb-12" data-aos="fade-up" sx={{}}>
                         <Typography
                             className="text-yellow-400 tracking-widest"
                             variant="overline"
@@ -304,7 +307,7 @@ const About = () => {
                         >
                             OUR TEAM
                         </Typography>
-                        <Typography className=" flex justify-center items-center text-center" variant="h5" component="h2">
+                        <Typography className=" flex justify-center items-center text-center" variant="h5" component="h2" sx={{ color: theme === 'dark' ? 'white' : '' }}>
                             The People Behind Saffron Stays
                         </Typography>
 
@@ -328,9 +331,10 @@ const About = () => {
                                             image={member.image}
                                             alt={member.name}
                                             className="absolute top-0 left-0 w-full h-full object-cover"
+
                                         />
                                     </Box>
-                                    <CardContent>
+                                    <CardContent sx={{ bgcolor: theme === 'dark' ? '#292A2D' : 'white', color: theme === 'dark' ? 'white' : '' }}>
                                         <Typography
                                             className="font-semibold"
                                             variant="h6"
@@ -344,7 +348,7 @@ const About = () => {
                                         >
                                             {member.position}
                                         </Typography>
-                                        <Typography className="text-gray-600" variant="body2">
+                                        <Typography className={`theme==='dark' ? "text-white" : "text-gray-600"`} variant="body2">
                                             {member.bio}
                                         </Typography>
                                         <Box className="mt-3 flex gap-2">
@@ -402,7 +406,9 @@ const About = () => {
                         >
                             <Paper
                                 elevation={2}
-                                className="p-6 h-full rounded-lg flex flex-col"
+                                className="p-6 h-full rounded-lg flex flex-col transform transition-transform duration-300 hover:scale-105"
+                                sx={{ bgcolor: theme === 'dark' ? '#292A2D' : 'white', color: theme === 'dark' ? 'white' : '' }}
+
                             >
                                 <Typography className="flex-1 italic mb-4" variant="body1">
                                     "{testimonial.text}"
@@ -452,6 +458,7 @@ const About = () => {
                     </Box>
                 </Container>
             </Box>
+
         </Box>
     );
 };

@@ -10,7 +10,7 @@ const ProductDetailSection5 = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { val, stayType } = location.state || {};
-    const { allTents, allHomeStays, allHotels, allVillas, allApartments, allCamps, allCottages, allFarmHouses, allTreeHouses } = useContext(staysContext);
+    const { allTents, allHomeStays, allHotels, allVillas, allApartments, allCamps, allCottages, allFarmHouses, allTreeHouses,theme } = useContext(staysContext);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [StaysData, setStaysData] = useState([]);
 
@@ -61,6 +61,7 @@ const ProductDetailSection5 = () => {
                         display: "grid",
                         gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr ", md: "1fr 1fr 1fr", lg: "1fr 1fr 1fr 1fr " },
                         gap: 2,
+                        
                     }}
                 >
                     {StaysData.map((val, i) => (
@@ -70,6 +71,7 @@ const ProductDetailSection5 = () => {
                                 p: 0,
                                 display: "flex",
                                 flexDirection: "column",
+                                color: theme === "dark" ? "white" : "black",bgcolor: theme === 'dark'? '#292A2D' : 'white',
                                 transition: "transform 0.3s ease-in-out",
                                 "&:hover": { transform: "scale(1.05)" },
                             }}
@@ -151,7 +153,7 @@ const ProductDetailSection5 = () => {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Typography variant="body1" sx={{ fontWeight: "semibold", color: "black", mt: 1, paddingLeft: "10px" }}>
+                            <Typography variant="body1" sx={{ fontWeight: "semibold", color:theme ==='dark' ?"white":"black", mt: 1, paddingLeft: "10px" }}>
                                 ₹{val.prices.afterDiscount} <s style={{ color: "gray", marginLeft: "5px" }}>₹{val.prices.actual}</s>
                             </Typography>
 

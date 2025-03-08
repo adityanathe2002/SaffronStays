@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const BookmarkPage = () => {
-    const { addBookmark, setAddBookmark, isLoggedIn } = useContext(staysContext);
+    const { addBookmark, setAddBookmark, isLoggedIn, theme } = useContext(staysContext);
     const navigate = useNavigate();
     const [stayType, setStayType] = useState("");
 
@@ -56,17 +56,17 @@ const BookmarkPage = () => {
                         {addBookmark.length > 0 ? (
                             addBookmark.map((val, i) => (
                                 <Grid item xs={12} sm={6} md={4} key={i}>
-                                    <Card sx={{ width: "100%", height: "95vh", boxShadow: 3, borderRadius: 2, position: "relative" }}>
+                                    <Card sx={{ width: "100%", height: "70vh", boxShadow: 3, borderRadius: 2, position: "relative", bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : ""  }}>
                                         <CardMedia
                                             component="img"
                                             onClick={() => navigate("/productDetails", { state: { val, stayType } })}  // Removed stayType if not needed
                                             src={val?.about?.images[0]}
-                                            sx={{ width: "100%", height: "70%", cursor: "pointer", objectFit: "cover", position: "relative" }}
+                                            sx={{ width: "100%", height: "60%", cursor: "pointer", objectFit: "cover", position: "relative" }}
                                             alt={val?.campName}
                                         />
                                         <Box sx={{ position: "absolute", pl: 2, pr: 2, pt: 0.5, pb: 0.5, borderRadius: "20px", bgcolor: "white", top: 10, right: 10, display: "flex", gap: 1 }}>
                                             <FavoriteIcon sx={{ color: "#FF4D5F" }} />
-                                            <Typography sx={{ fontWeight: 600 }}>Saved</Typography>
+                                            <Typography sx={{ fontWeight: 600, color:"black" }}>Saved</Typography>
                                         </Box>
                                         <CardContent>
                                             <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: "serif" }}>
@@ -94,7 +94,7 @@ const BookmarkPage = () => {
                                                 </Box>
                                                 <Box sx={{ display: 'flex', gap: 1, justifyContent: '', }}>
                                                     <IconButton
-                                                        sx={{ color: "black" }}
+                                                        sx={{ color:theme ==='dark'?"white": "black" }}
                                                         onClick={() => (val)}
                                                     >
                                                         <ShoppingBagIcon />

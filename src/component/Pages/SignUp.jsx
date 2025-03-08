@@ -85,21 +85,21 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    
+
     const data = {
       username: state.username,
       email: state.email,
       contact: state.contact,
       password: state.password,
     };
-    
+
     try {
       const existingUser = await axios.get(`http://localhost:5000/users?email=${state.email}`);
       if (existingUser.data.length > 0) {
         dispatch({ type: "SET_ERROR", value: "User with this email already exists!" });
         return;
       }
-      
+
       await axios.post("http://localhost:5000/users", data, { headers: { "Content-Type": "application/json" } });
       dispatch({ type: "SET_SUCCESS", value: "Sign up successful!" });
       toast.success("Sign Up successful!",{duration: 2000});
@@ -109,6 +109,39 @@ const SignUp = () => {
       dispatch({ type: "SET_ERROR", value: "Signup failed! Please try again." });
     }
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
+
+  //   const data = {
+  //     username: state.username,
+  //     email: state.email,
+  //     contact: state.contact,
+  //     password: state.password,
+  //   };
+
+  //   try {
+  //     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  //     const userExists = existingUsers.some(user => user.email === state.email);
+
+  //     if (userExists) {
+  //       dispatch({ type: "SET_ERROR", value: "User with this email already exists!" });
+  //       return;
+  //     }
+
+  //     existingUsers.push(data);
+  //     localStorage.setItem("users", JSON.stringify(existingUsers));
+
+  //     dispatch({ type: "SET_SUCCESS", value: "Sign up successful!" });
+  //     toast.success("Sign Up successful!", { duration: 2000 });
+
+  //     setTimeout(() => navigate("/login"), 2000);
+  //   } catch (error) {
+  //     console.error("Signup error:", error);
+  //     dispatch({ type: "SET_ERROR", value: "Signup failed! Please try again." });
+  //   }
+  // };
 
   return (
     <Box
@@ -124,7 +157,7 @@ const SignUp = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Box sx={{ width: { xs: "90%", sm: "60%", md: "40%" }, p: 3, bgcolor: "white", opacity: 0.8, boxShadow: 3, borderRadius: 3 }}>
+      <Box sx={{ width: { xs: "90%", sm: "60%", md: "40%" }, p: 3, bgcolor: "white",color:"black" , opacity: 0.8, boxShadow: 3, borderRadius: 3 }}>
         <Typography variant="h6" sx={{ textAlign: "center", mb: 1, fontWeight: "bold" }}>Sign Up</Typography>
         <Typography variant="h5" sx={{ textAlign: "center", mb: 1, fontWeight: "bold" }}>Welcome To SaffronStays</Typography>
         <Typography variant="body2" sx={{ textAlign: "center", mb: 2, fontWeight: "" }}>Sign up for exclusive offers</Typography>
@@ -136,9 +169,9 @@ const SignUp = () => {
           <TextField label="Contact" name="contact" type="tel" variant="outlined" fullWidth sx={{ mb: 2 }} onChange={(e) => handleChange("contact", e.target.value)} />
           <TextField label="Password" name="password" type={showPassword ? "text" : "password"} variant="outlined" fullWidth sx={{ mb: 2 }} onChange={(e) => handlePasswordChange(e.target.value)} InputProps={{ endAdornment: <InputAdornment position="end"><IconButton onClick={() => setShowPassword(!showPassword)}>{showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}</IconButton></InputAdornment> }} />
           {showPasswordTip && <Typography sx={{ fontSize: "12px", color: "gray" }}>{passwordMessage}</Typography>}
-          <FormControlLabel  sx={{display:"flex",justifyContent:"center" ,alignItems:"center"}} control={<Checkbox checked={state.isChecked} onChange={() => dispatch({ type: "TOGGLE_CHECKBOX" })} />} label="I agree to the Terms & Conditions" />
-          <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: "#464646", color: "white", p: 1.5,  "&:hover": { bgcolor: "#202020" } }}>Sign Up</Button>
-          <Typography sx={{ textAlign: "center", mt: 2 }}>Already a member? <Link to="/login"><Typography variant="p" sx={{color:"#38BCF8"}}>Sign In</Typography></Link></Typography>
+          <FormControlLabel sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} control={<Checkbox checked={state.isChecked} onChange={() => dispatch({ type: "TOGGLE_CHECKBOX" })} />} label="I agree to the Terms & Conditions" />
+          <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: "#464646", color: "white", p: 1.5, "&:hover": { bgcolor: "#202020" } }}>Sign Up</Button>
+          <Typography sx={{ textAlign: "center", mt: 2 }}>Already a member? <Link to="/login"><Typography variant="p" sx={{ color: "#38BCF8" }}>Sign In</Typography></Link></Typography>
         </form>
       </Box>
     </Box>
@@ -148,95 +181,3 @@ export default SignUp;
 
 
 
-// import React, { useState } from "react";
-// import { TextField, Button, Box, Typography, IconButton, InputAdornment } from "@mui/material";
-// import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-// import { Link } from "react-router-dom";
-// import Login from "../../assets/Register/login.jpg";
-
-// const SignUp = () => {
-//   const [showPassword, setShowPassword] = useState(false);
-
-//   const [formData, setFormData] = useState({
-//     username: "",
-//     email: "",
-//     contact: "",
-//     password: "",
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Form Data:", formData);
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         width: "100%",
-//         height: "100vh",
-//         display: "flex",
-//         justifyContent: "center",
-//         alignItems: "center",
-//         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Login})`,
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         backgroundRepeat: "no-repeat",
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           width: { xs: "90%", sm: "60%", md: "40%" },
-//           p: 3,
-//           bgcolor: "white",
-//           opacity: 0.9,
-//           boxShadow: 3,
-//           borderRadius: 3,
-//         }}
-//       >
-//         <Typography variant="h5" sx={{ textAlign: "center", mb: 2, fontWeight: "bold" }}>
-//           Sign Up
-//         </Typography>
-
-//         <form onSubmit={handleSubmit}>
-//           <TextField label="Username" name="username" variant="outlined" fullWidth sx={{ mb: 2 }} onChange={handleChange} />
-//           <TextField label="Email" name="email" type="email" variant="outlined" fullWidth sx={{ mb: 2 }} onChange={handleChange} />
-//           <TextField label="Contact" name="contact" type="tel" variant="outlined" fullWidth sx={{ mb: 2 }} onChange={handleChange} />
-
-//           {/* Password Field with Show/Hide Toggle */}
-//           <TextField
-//             label="Password"
-//             name="password"
-//             type={showPassword ? "text" : "password"} // Toggle Type
-//             variant="outlined"
-//             fullWidth
-//             sx={{ mb: 3 }}
-//             onChange={handleChange}
-//             InputProps={{
-//               endAdornment: (
-//                 <InputAdornment position="end">
-//                   <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-//                     {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-//                   </IconButton>
-//                 </InputAdornment>
-//               ),
-//             }}
-//           />
-
-//           <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: "#464646", color: "white", p: 1.5 }}>
-//             Sign Up
-//           </Button>
-
-//           <Typography sx={{ textAlign: "center", mt: 2 }}>
-//             Already a member? <Link to="/login">Sign In</Link>
-//           </Typography>
-//         </form>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default SignUp;

@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
-    const { addCart, setAddCart } = useContext(staysContext);
+    const { addCart, setAddCart, theme } = useContext(staysContext);
     const navigate = useNavigate();
     const [paymentMethod, setPaymentMethod] = useState("Credit Card");
     const [userInfo, setUserInfo] = useState({
@@ -103,7 +103,7 @@ const CheckoutPage = () => {
             <Grid container spacing={2}>
                 {/* User Information */}
                 <Grid item xs={12} sm={6}>
-                    <Card sx={{ padding: 2 }}>
+                    <Card sx={{ padding: 2,  bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : "" }}>
                         <CardContent>
                             <Typography variant="h6" fontWeight="bold" gutterBottom>
                                 Enter Your Details
@@ -117,14 +117,14 @@ const CheckoutPage = () => {
 
                 {/* Payment & Booking Summary */}
                 <Grid item xs={12} sm={6}>
-                    <Card sx={{ padding: 2 }}>
+                    <Card sx={{ padding: 2,  bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : "" }}>
                         <CardContent>
                             <Typography variant="h6" fontWeight="bold" gutterBottom>
                                 Payment Method
                             </Typography>
                             <FormControl fullWidth margin="dense">
                                 <InputLabel>Payment Method</InputLabel>
-                                <Select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
+                                <Select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}  sx={{ bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : ""}} >
                                     <MenuItem value="Credit Card">Credit Card</MenuItem>
                                     <MenuItem value="UPI">UPI</MenuItem>
                                     <MenuItem value="Net Banking">Net Banking</MenuItem>
@@ -139,7 +139,7 @@ const CheckoutPage = () => {
             <Divider sx={{ marginY: "20px" }} />
 
             {/* Booking Summary */}
-            <Card sx={{ padding: 2, marginBottom: "20px" }}>
+            <Card sx={{ padding: 2, marginBottom: "20px",  bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : "" }}>
                 <CardContent>
                     <Typography variant="h6" fontWeight="bold" gutterBottom>
                         Booking Summary

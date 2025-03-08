@@ -1,6 +1,6 @@
-import { BookmarkBorderOutlined, Phone } from '@mui/icons-material';
+import { BookmarkBorderOutlined, DarkMode, LightMode, Phone } from '@mui/icons-material';
 import { AppBar, Box, Button, Menu, MenuItem, Drawer, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Typography, Badge } from '@mui/material';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FaChevronDown, FaUser } from "react-icons/fa";
 import { MdPerson, MdLogout } from "react-icons/md";
@@ -11,12 +11,15 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useContext, useEffect, useState } from 'react';
 import { staysContext } from '../AppContext/TentsContext';
 import axios from 'axios';
+import Cookies from "js-cookie";
 
 const Navbar = () => {
-    const { isLoggedIn, setIsLoggedIn, setUserDetails, addBookmark, setAddBookmark, addCart, setAddCart } = useContext(staysContext)
+    const { isLoggedIn, setIsLoggedIn, setUserDetails, addBookmark, setAddBookmark, addCart, setAddCart, theme, toggleTheme } = useContext(staysContext)
     const [mobileOpen, setMobileOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const [cartTrue, setCartTrue] = useState(true)
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:5000/bookmark").then((resp) => {
@@ -25,10 +28,13 @@ const Navbar = () => {
     }, [])
 
     useEffect(() => {
+        // if (cartTrue) {
         axios.get("http://localhost:5000/cart").then((resp) => {
             setAddCart(resp.data);
+            // setCartTrue(false)
         }).catch((error) => console.log(error))
-    }, [addCart])
+        // }
+    }, [])
 
 
     let bookmarkcount = addBookmark.length;
@@ -39,14 +45,27 @@ const Navbar = () => {
     };
 
     const handleClose = () => {
+        Cookies.remove("email");
+        Cookies.remove("password");
+        Cookies.remove("rememberMe");
         setAnchorEl(null);
     };
 
+    // const handleLogout = () => {
+    //     setIsLoggedIn(false);
+    //     setUserDetails({ email: "", password: "" });
+    //     navigate('/');  // Redirect to login page
+    // };
+
     const handleLogout = () => {
+        Cookies.remove("email");
+        Cookies.remove("password");
+        Cookies.remove("rememberMe");
         setIsLoggedIn(false);
         setUserDetails({ email: "", password: "" });
-        navigate('/');  // Redirect to login page
+        navigate("/");
     };
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -56,7 +75,7 @@ const Navbar = () => {
         { label: 'Home', to: '/' },
         { label: 'About Us', to: '/aboutus' },
         { label: 'Tours', to: '/stays' },
-        { label: 'Prices', to: '/prices' },
+        { label: 'Contact Us', to: '/contactus' },
     ];
 
     const drawer = (
@@ -98,23 +117,15 @@ const Navbar = () => {
                         </Button>
                     </Link>
                 )}
-                <Link to='/contactus'>
-                    <Button
-                        variant="outlined"
-                        className="bg-black text-white px-4 py-1 rounded-full w-full flex items-center gap-2"
-                    >
-                        <Phone fontSize="medium" />
-                        Contact Us
-                    </Button>
-                </Link>
+
             </Box>
         </Box>
     );
 
     return (
-        <AppBar position="sticky" sx={{ backgroundColor: "white", color: "black", height: "60px" }} >
+        <AppBar position="sticky" sx={{ backgroundColor: theme === "dark" ? "#1F2020" : "white", color: theme === "dark" ? "white" : "black", }} >
             <Toolbar sx={{}}
-                class="flex justify-between items-center w-full  px-2 py-2"
+                className="flex justify-between items-center w-full  px-2 py-2"
             >
                 <IconButton
                     edge="start"
@@ -128,23 +139,24 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Box
-                    class="flex items-center gap-2 sm:w-28" sx={{ fontSize: { xs: '14px', sm: '16px' }, gap: { xs: '1rem', sm: '2rem' } }}>
+                    className="flex items-center gap-2 sm:w-28" sx={{ fontSize: { xs: '14px', sm: '16px' }, gap: { xs: '1rem', sm: '2rem' } }}>
                     {/* <Box component="img" class="hidden sm:block" src={Logo} sx={{ width: { xs: '20px', md: '40px', lg:"30px" }, height:{xs:"20px", sm:"40px", lg:"30px"} }} /> */}
                     <Typography variant="h6" sx={{ fontFamily: "'Waltograph', sans-serif", fontSize: { xs: '16px', sm: '20px', lg: '20px' }, fontWeight: "500" }}>
-                       <Link to='/'> SaffronStays</Link>
+                        <Link to='/'> SaffronStays</Link>
                     </Typography>
                 </Box>
 
 
                 {/* Desktop Navigation */}
                 <Box
-                    sx={{ width: "45%" }}
-                    class="hidden md:flex gap-6 text-black">
-                    {navLinks.map((link) => (
+                    sx={{ width: "45%", color: "darkMode" ? "white" : "black", }}
+                    className="hidden md:flex gap-6 ">
+                    {navLinks.map((link, index) => (
                         <Link to={link.to} >
                             <NavLink
+
                                 className={({ isActive }) => {
-                                    let checkIsActive = isActive ? "linkIsActive" : "linkIsInActive";
+                                    let checkIsActive = ` ${isActive ? "text-blue-500 font-bold" : theme === "dark" ? "text-white" : "text-black"}`;
                                     return checkIsActive;
                                 }}
                                 to={link.to}
@@ -158,10 +170,10 @@ const Navbar = () => {
                 </Box>
 
                 {/* Icons */}
-                <Box class=" flex items-center justify-end   gap-4">
+                <Box className=" flex items-center justify-end   gap-4">
                     {/* cart */}
                     <Link to="/cart">
-                        <IconButton sx={{ backgroundColor: "black", color: "white" }}>
+                        <IconButton sx={{ color: theme === 'dark' ? "white" : "black" }}>
                             <Badge badgeContent={cartcount} color="primary">
                                 <ShoppingBagIcon color='black' />
                             </Badge>
@@ -169,7 +181,7 @@ const Navbar = () => {
                     </Link>
                     {/* bookmark */}
                     <Link to="/bookmark">
-                        <IconButton sx={{ backgroundColor: "black", color: "white" }}>
+                        <IconButton sx={{ color: theme === 'dark' ? "white" : "black" }}>
                             <Badge badgeContent={bookmarkcount} color="primary">
                                 <BookmarkBorderOutlined color='black' />
                             </Badge>
@@ -183,7 +195,7 @@ const Navbar = () => {
                                 variant="contained"
                                 sx={{
                                     backgroundColor: "white",
-                                    color: "black",
+                                 color: "black",
                                     display: "flex",
                                     alignItems: "center",
                                     textTransform: "none",
@@ -223,7 +235,7 @@ const Navbar = () => {
                                         "&:hover": { backgroundColor: "#f5f5f5" }
                                     }}
                                 >
-                                        <MdPerson size={20} className="text-blue-600" />
+                                    <MdPerson size={20} className="text-blue-600" />
 
                                     <Link to="/userprofile">
                                         My Profile
@@ -242,10 +254,10 @@ const Navbar = () => {
                                         "&:hover": { backgroundColor: "#f5f5f5" }
                                     }}
                                 >
-                                        <ShoppingBagIcon color='black' size={20}  />
+                                    <ShoppingBagIcon color='black' size={20} />
 
                                     <Link to="/bookinghistroy">
-                                       Booking Histroy
+                                        Booking Histroy
                                     </Link>
                                 </MenuItem>
 
@@ -272,22 +284,17 @@ const Navbar = () => {
                         <Link to='/login' >
                             <Typography
                                 // variant="outlined"
-                                class="bg-gray-200 text-black border gap-2 border-black items-center rounded-xl px-4 py-1 hidden md:flex "
+                                className="bg-gray-200 text-black border gap-2 border-gray-300 items-center rounded-xl px-4 py-1 hidden md:flex "
                             >
                                 <FaUser />
                                 Login
                             </Typography>
                         </Link>
                     )}
-                    <Link to="/contactus">
-                        <Button
-                            variant="outlined"
-                            class="bg-black text-white px-2 py-1 rounded-full   items-center hidden md:flex gap-2"
-                        >
-                            <Phone fontSize="small" />
-                            Contact Us
-                        </Button>
-                    </Link>
+
+                    <IconButton onClick={toggleTheme} sx={{ color: theme === 'dark' ? "yellow" : "black" }}>
+                        {theme === 'light' ? <DarkMode /> : <LightMode />}
+                    </IconButton>
                 </Box>
 
 

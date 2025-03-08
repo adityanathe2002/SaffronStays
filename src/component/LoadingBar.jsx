@@ -6,7 +6,7 @@ const LoadingBar = () => {
 
   return (
     <Box sx={{ width: "100%" }}>
-    <LinearProgress variant="determinate"  />
+    <LinearProgress variant="determinate" value={""}  />
       {/* Navbar Skeleton */}
       <AppBar position="static" color="grey.500" sx={{mt:1}}>
         <Toolbar>

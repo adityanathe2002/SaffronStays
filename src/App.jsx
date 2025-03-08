@@ -1,17 +1,14 @@
 import React from 'react'
 import "../node_modules/tailwindcss/dist/default-theme.mjs"
-import Navbar from './component/Navbar/Navbar'
-import HeroSection from './component/Home/HeroSection'
-import HomeSection2 from './component/Home/HomeSection2'
-import HomeSection3 from './component/Home/HomeSection3'
 import { RouterProvider } from 'react-router-dom'
 import { routingPage } from './component/Router/RouterPage'
 import SaffranStays from './component/SaffranStays'
 import Aos from 'aos'
 import "aos/dist/aos.css";
-import SmoothScroll from './SmoothScroll'
+
 
 import TentsContext from './component/AppContext/TentsContext'
+import CustomCursor from './component/CustomCursor'
 
 const App = () => {
   React.useEffect(() => {
@@ -25,8 +22,7 @@ const App = () => {
   }, []);
   return (
     <div>
-
-<SmoothScroll />
+ <CustomCursor />
       <TentsContext>
         <RouterProvider router={routingPage}>
           <SaffranStays />
@@ -37,3 +33,4 @@ const App = () => {
 }
 
 export default App
+

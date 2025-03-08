@@ -7,11 +7,19 @@ import dayjs from "dayjs"; // To handle date calculations
 import { Link, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
-  const { addCart, setAddCart, isLoggedIn, setIsLoggedIn } = useContext(staysContext);
+  const { addCart, setAddCart, isLoggedIn, setIsLoggedIn, theme, confirmOrder, setConfirmOrder } = useContext(staysContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [dates, setDates] = useState({});
   const [guests, setGuests] = useState({});
-  const navigate= useNavigate();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (confirmOrder) {
+      setAddCart([]); // Clear the cart
+      setConfirmOrder(false); // Reset the confirmOrder state
+    }
+  }, [confirmOrder, setAddCart, setConfirmOrder]);
+console.log(confirmOrder);
 
   useEffect(() => {
     axios
@@ -111,7 +119,6 @@ const CartPage = () => {
     }
   };
 
-  console.log(addCart);
 
   return (
     <Box sx={{ padding: { xs: "10px", sm: "20px" }, maxWidth: "900px", margin: "auto", textAlign: "center" }}>
@@ -120,7 +127,7 @@ const CartPage = () => {
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Complete Your Booking
           </Typography>
-          <Typography variant="body2" color="text.secondary" gutterBottom>
+          <Typography variant="body2"  gutterBottom  sx={{color: theme === "dark" ? "#666666" : "#666666",}} >
             Choose your dates, select guests, and finalize your stay!
           </Typography>
 
@@ -129,7 +136,7 @@ const CartPage = () => {
           {addCart.length > 0 ? (
             <>
               {addCart.map((stay) => (
-                <Card key={stay.id} sx={{ marginBottom: "15px", display: "flex", flexDirection: { xs: "column", sm: "row" }, textAlign: "left" }}>
+                <Card key={stay.id} sx={{ marginBottom: "15px", display: "flex", flexDirection: { xs: "column", sm: "row" }, textAlign: "left", bgcolor: theme === 'dark' ? "#292A2D" : "", color: theme === 'dark' ? "white" : "" }}>
                   <CardMedia
                     component="img"
                     sx={{ width: { xs: "100%", sm: 220 }, height: { xs: 180, sm: 200 }, p: 1, borderRadius: "20px" }}
@@ -138,7 +145,7 @@ const CartPage = () => {
                   />
                   <CardContent sx={{ flex: 1 }}>
                     <Typography variant="h6" fontWeight="bold">{stay.campName}</Typography>
-                    <Typography variant="body2" color="text.secondary">{stay.address.tal}</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ color: theme === 'dark' ? "white" : "#666666" }}> {stay.address.tal}</Typography>
                     <Typography variant="body1" sx={{ marginTop: "10px" }}>Price: ₹{stay.prices.afterDiscount}</Typography>
 
                     <Grid container spacing={2} sx={{ marginTop: "10px" }}>
@@ -150,6 +157,23 @@ const CartPage = () => {
                           value={dates[stay.id]?.from || ""}
                           onChange={(e) => handleDateChange(stay.id, "from", e.target.value)}
                           label="Check-in"
+                          sx={{
+                            "& .MuiInputBase-input": {
+                              color: theme === "dark" ? "#666666" : "black", // Ensures input text color
+                            },
+                            "& .MuiInputLabel-root": {
+                              color: theme === "dark" ? "#666666" : "#666666", // Adjusts label color
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "white" : "#666666", // Border color
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Hover effect
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Focus effect
+                            }
+                          }}
                           InputLabelProps={{ shrink: true }}
                           inputProps={{ min: dayjs().format("YYYY-MM-DD") }}
                         />
@@ -162,6 +186,23 @@ const CartPage = () => {
                           value={dates[stay.id]?.to || ""}
                           onChange={(e) => handleDateChange(stay.id, "to", e.target.value)}
                           label="Check-out"
+                          sx={{
+                            "& .MuiInputBase-input": {
+                              color: theme === "dark" ? "#666666" : "black", // Ensures input text color
+                            },
+                            "& .MuiInputLabel-root": {
+                              color: theme === "dark" ? "#666666" : "#666666", // Adjusts label color
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "white" : "#666666", // Border color
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Hover effect
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Focus effect
+                            }
+                          }}
                           InputLabelProps={{ shrink: true }}
                           inputProps={{ min: dates[stay.id]?.from || dayjs().format("YYYY-MM-DD") }}
                         />
@@ -177,6 +218,23 @@ const CartPage = () => {
                           value={guests[stay.id]?.adults || 1}
                           onChange={(e) => handleGuestChange(stay.id, "adults", parseInt(e.target.value))}
                           label="Adults"
+                          sx={{
+                            "& .MuiInputBase-input": {
+                              color: theme === "dark" ? "#666666" : "black", // Ensures input text color
+                            },
+                            "& .MuiInputLabel-root": {
+                              color: theme === "dark" ? "#666666" : "#666666", // Adjusts label color
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "white" : "#666666", // Border color
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Hover effect
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Focus effect
+                            }
+                          }}
                         >
                           {[1, 2, 3, 4, 5].map((num) => (
                             <MenuItem key={num} value={num}>{num}</MenuItem>
@@ -191,6 +249,23 @@ const CartPage = () => {
                           value={guests[stay.id]?.children || 0}
                           onChange={(e) => handleGuestChange(stay.id, "children", parseInt(e.target.value))}
                           label="Children"
+                          sx={{
+                            "& .MuiInputBase-input": {
+                              color: theme === "dark" ? "#666666" : "black", // Ensures input text color
+                            },
+                            "& .MuiInputLabel-root": {
+                              color: theme === "dark" ? "#666666" : "#666666", // Adjusts label color
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "white" : "#666666", // Border color
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Hover effect
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                              borderColor: theme === "dark" ? "#38BCF8" : "#1976d2", // Focus effect
+                            }
+                          }}
                         >
                           {[0, 1, 2, 3, 4, 5].map((num) => (
                             <MenuItem key={num} value={num}>{num}</MenuItem>
@@ -221,9 +296,9 @@ const CartPage = () => {
               </Typography>
 
               <Link>
-              <Button variant="contained" color="primary" size="large" sx={{ marginTop: "20px", width: { xs: "100%", sm: "auto" } }} onClick={handleProceedToCheckout}>
-                Proceed to Checkout
-              </Button>
+                <Button variant="contained" color="primary" size="large" sx={{ marginTop: "20px", width: { xs: "100%", sm: "auto" } }} onClick={handleProceedToCheckout}>
+                  Proceed to Checkout
+                </Button>
               </Link>
             </>
           ) : (
@@ -233,12 +308,12 @@ const CartPage = () => {
           )}
         </>
       ) : (
-        <Box sx={{width:"100%" , height:"60vh", display:"flex",flexDirection:"column", alignItems:"center",justifyContent:"center", gap:2 }}>
+        <Box sx={{ width: "100%", height: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
           <Typography variant="h6" color="text.secondary">
             Please log in to view your cart details.
           </Typography>
           <Link to="/login">
-          <Button variant="contained">Login</Button>
+            <Button variant="contained">Login</Button>
           </Link>
         </Box>
       )}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
 import HeroSection from './Home/HeroSection';
@@ -10,6 +10,9 @@ import SocialMedia from './Footer/SocialMedia';
 
 const SaffranStays = () => {
     const location = useLocation();
+    useEffect(()=>{
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    },[])
     return (
         <div>
             <Navbar />
@@ -19,10 +22,10 @@ const SaffranStays = () => {
                   <HomeSection2/>
                   <HomeSection3/>
                   <HomeSection4/>
-                  <SocialMedia/>
                 </>
             )}
             <Outlet />
+            <SocialMedia/>
             <Footer />
         </div>
     );

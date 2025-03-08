@@ -35,8 +35,19 @@ const TentsContext = ({ children }) => {
     const [addBookmark , setAddBookmark] = useState([]);
     const [addCart , setAddCart] = useState([]);
     const [bookingData, setBookingData] = useState([])
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+    const [ confirmOrder, setConfirmOrder] = useState(false);
     
 
+    useEffect(() => {
+        document.body.className = theme;  
+        localStorage.setItem('theme', theme); 
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+    
     useEffect(()=>{
         axios.get("http://localhost:5000/admin").then((resp)=>{
             setAdmin(resp.data)
@@ -44,8 +55,8 @@ const TentsContext = ({ children }) => {
     },[])
     
     useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/tents")
-        axios.get("http://localhost:5000/tents")
+        axios.get("http://116.75.62.44:5000/tents")
+        // axios.get("http://localhost:5000/tents")
             .then((resp) => {
                 setAllTents(resp.data);
                 setFilteredStays(resp.data)
@@ -53,8 +64,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/homeStays")
-        axios.get("http://localhost:5000/homestays")
+        axios.get("http://116.75.62.44:5000/homeStays")
+        // axios.get("http://localhost:5000/homestays")
             .then((resp) => {
                 setAllHomestays(resp.data);
                 setFilteredStays(resp.data);
@@ -62,8 +73,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/hotels")
-        axios.get("http://localhost:5000/hotels")
+        axios.get("http://116.75.62.44:5000/hotels")
+        // axios.get("http://localhost:5000/hotels")
             .then((resp) => {
                 setAllHotels(resp.data);
                 setFilteredHotels(resp.data);
@@ -71,7 +82,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/camps")
+        axios.get("http://116.75.62.44:5000/camps")
+        // axios.get("http://localhost:5000/camps")
             .then((resp) => {
                 setAllCamps(resp.data);
                 // setFilteredHotels(resp.data);
@@ -79,7 +91,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/farmhouses")
+      axios.get("http://116.75.62.44:5000/farmhouses")
+        // axios.get("http://localhost:5000/farmhouses")
             .then((resp) => {
                 setAllFarmHouses(resp.data);
                 // setFilteredHotels(resp.data);
@@ -87,7 +100,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/villas")
+         axios.get("http://116.75.62.44:5000/villas")
+        // axios.get("http://localhost:5000/villas")
             .then((resp) => {
                 setAllVillas(resp.data);
                 // setFilteredHotels(resp.data);
@@ -95,7 +109,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/apartments")
+         axios.get("http://116.75.62.44:5000/apartments")
+        // axios.get("http://localhost:5000/apartments")
             .then((resp) => {
                 setAllApartments(resp.data);
                 // setFilteredHotels(resp.data);
@@ -103,7 +118,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/cottages")
+        axios.get("http://116.75.62.44:5000/cottages")
+        // axios.get("http://localhost:5000/cottages")
             .then((resp) => {
                 setAllCottages(resp.data);
                 // setFilteredHotels(resp.data);
@@ -111,7 +127,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/treehouses")
+        axios.get("http://116.75.62.44:5000/treehouses")
+        // axios.get("http://localhost:5000/treehouses")
             .then((resp) => {
                 setAllTreeHouses(resp.data);
                 // setFilteredHotels(resp.data);
@@ -551,7 +568,7 @@ const TentsContext = ({ children }) => {
             filteredFarmhouse, filteredTreeHouses, filteredApartments, filteredCottages,
             admin,setAdmin,isLoggedIn, setIsLoggedIn, userDetails,setUserDetails,
             addBookmark , setAddBookmark,addCart , setAddCart,isAdminLoggedIn, setIsAdminLoggedIn,
-            bookingData, setBookingData
+            bookingData, setBookingData,theme, toggleTheme,  confirmOrder, setConfirmOrder
         }}>
             {children}
         </staysContext.Provider>
