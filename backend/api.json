@@ -74334,7 +74334,11 @@
       "username": "Aditya",
       "email": "adityanathe72@gmail.com",
       "contact": "9359803710",
-      "password": "Adi@123"
+      "password": "Adi@123",
+      "gender": "Male",
+      "tal": "Pune",
+      "dist": "Pune",
+      "state": "Maharashtra"
     },
     {
       "id": "dd06",
@@ -74345,299 +74349,192 @@
     },
     {
       "id": "2192",
-      "username": "kunal",
+      "username": "kunal ",
       "email": "kunal@gmail.com",
       "contact": "9876543210",
-      "password": "Kunal@123"
+      "password": "Kunal@123",
+      "state": "Maharashtra",
+      "dist": "Pune",
+      "tal": "Pune",
+      "gender": "Male"
+    },
+    {
+      "id": "d8ff",
+      "username": "Shweta manjare",
+      "email": "shwetamanjare@gmail.com",
+      "contact": "9988776655",
+      "password": "Shweta@123",
+      "gender": "Female",
+      "tal": "Khed",
+      "dist": "Pune",
+      "state": "Maharashtra"
     }
   ],
   "admin": [
     {
       "username": "admin",
       "email": "admin1@gmail.com",
+      "contact": "8877665544",
       "password": "Admin@123456",
       "id": "a3a1"
     }
   ],
+  "registrations": [
+    {
+      "date": "2025-02-01",
+      "count": 12,
+      "id": "1a50"
+    },
+    {
+      "date": "2025-02-02",
+      "count": 18,
+      "id": "9117"
+    },
+    {
+      "date": "2025-02-03",
+      "count": 25,
+      "id": "7da2"
+    },
+    {
+      "date": "2025-02-04",
+      "count": 25,
+      "id": "ac72"
+    },
+    {
+      "date": "2025-02-05",
+      "count": 28,
+      "id": "ff53"
+    },
+    {
+      "date": "2025-02-06",
+      "count": 30,
+      "id": "7baa"
+    },
+    {
+      "date": "2025-02-07",
+      "count": 32,
+      "id": "429c"
+    },
+    {
+      "date": "2025-02-08",
+      "count": 38,
+      "id": "96e5"
+    },
+    {
+      "date": "2025-02-09",
+      "count": 42,
+      "id": "d0c6"
+    },
+    {
+      "date": "2025-02-10",
+      "count": 46,
+      "id": "c0ec"
+    },
+    {
+      "date": "2025-02-11",
+      "count": 45,
+      "id": "de5a"
+    },
+    {
+      "date": "2025-02-12",
+      "count": 44,
+      "id": "d7a1"
+    },
+    {
+      "date": "2025-02-13",
+      "count": 39,
+      "id": "8bb3"
+    },
+    {
+      "date": "2025-02-14",
+      "count": 43,
+      "id": "380a"
+    },
+    {
+      "date": "2025-02-15",
+      "count": 47,
+      "id": "1c7a"
+    },
+    {
+      "date": "2025-02-16",
+      "count": 40,
+      "id": "850b"
+    },
+    {
+      "date": "2025-02-17",
+      "count": 50,
+      "id": "8cf8"
+    },
+    {
+      "date": "2025-02-18",
+      "count": 56,
+      "id": "bd76"
+    }
+  ],
   "bookmark": [
     {
-      "id": "1",
-      "campName": "Whispering Woods Tents",
-      "type": "Adventure Tent",
+      "id": "7",
+      "campName": "Aurora Skyline Residences",
+      "type": "Deluxe Apartment",
       "freeServices": [
-        "Free WiFi",
-        "Campfire Experience",
-        "Free Breakfast"
+        "Free Breakfast",
+        "Free Gym Access"
       ],
       "refundPolicy": "Partially Refundable",
       "prices": {
-        "actual": 8932,
-        "afterDiscount": 7383
+        "actual": 18351,
+        "afterDiscount": 10249
       },
       "roomsInACamp": [
         {
-          "type": "Traditional Bamboo Hut",
-          "beds": "1 Double Bed with Local Handmade Sheets",
-          "capacity": "sleeps 2 guests comfortably"
+          "type": "1 Bedroom",
+          "beds": "1 Double Bed",
+          "capacity": "Sleeps 2 guests"
         }
       ],
       "about": {
-        "info": "Whispering Woods Tents offers a tranquil stay with scenic beauty in Aurangabad.",
+        "info": "Aurora Skyline Residences offers a perfect blend of luxury and comfort near popular tourist destinations in Maharashtra. Enjoy modern amenities, breathtaking views, and unparalleled hospitality.",
         "images": [
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/b3/ab/c0/tents-n-trails.jpg?w=1200&h=-1&s=1",
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/da/91/bb/tents-n-trails.jpg?w=1200&h=-1&s=1",
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/da/91/bb/tents-n-trails.jpg?w=1200&h=-1&s=1",
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/da/91/bb/tents-n-trails.jpg?w=1200&h=-1&s=1",
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/cd/ed/b7/caption.jpg?w=700&h=-1&s=1"
+          "https://www.hireacamp.com/api/external/image?name=uploads/de3f5fa3e26b407f9f48987203563d63.jpeg&size=3840x3840&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/64f2fa6df30d4087948056167d80f53b.jpeg&size=3840x3840&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/8c9a48aa8ddb4451a9c5ef74ac67c201.jpeg&size=3840x3840&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/cbd1640af2684371a8ec39697dd86935.jpeg&size=3840x3840&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/2cee1e280a6348c99350a728dd04baaa.jpeg&size=3840x3840&q=75"
         ]
       },
       "address": {
-        "landmark": "Landmark near Whispering Woods Tents",
-        "village": "Village near Mountain Bliss Camps",
-        "tal": "Borivali",
-        "dist": "Mumbai",
-        "location": "https://maps.app.goo.gl/De8X3rNNjhaCNu2N6"
-      },
-      "amenities": [
-        "Trekking",
-        "Bonfire",
-        "Yoga Sessions",
-        "Wildlife Safari"
-      ],
-      "propertyLayout": {
-        "roomOptions": [
-          {
-            "img": "https://www.hireacamp.com/api/external/image?name=uploads/d4d7f73bf29f4d3493dc06de9fec4455.jpeg&size=1080x1080&q=75",
-            "qty": 2,
-            "name": "Luxury Tent",
-            "beds": "1 Queen Bed",
-            "extra": "Garden View"
-          }
-        ],
-        "sharedOptions": [
-          {
-            "img": "https://www.hireacamp.com/api/external/image?name=uploads/d68525a5f23d42c3bb721bfde29cb0e5.jpeg&size=1080x1080&q=75",
-            "qty": 1,
-            "name": "Shared Bathroom",
-            "beds": "",
-            "extra": [
-              "Solar-heated water"
-            ]
-          }
-        ]
-      },
-      "foodDining": [
-        {
-          "isMealProvided": true,
-          "mealsOffered": [
-            "Authentic Maharashtrian Dinner",
-            "Breakfast",
-            "Snacks",
-            "Desserts",
-            "Evening Tea/Coffee"
-          ],
-          "veg": true,
-          "non-veg": false,
-          "isOutsideFoodAllowed": false
-        }
-      ],
-      "ratings": {
-        "location": 4.1,
-        "cleanliness": 3.9,
-        "valueForMoney": 3.7,
-        "food": 4.2,
-        "facilities": 3.9,
-        "checkInExperience": 4.7
-      },
-      "reviews": [
-        {
-          "custName": "Anita Roy",
-          "date": "10-7-2022",
-          "categoryUsed": "Deluxe Tent",
-          "review": "The staff were friendly, and the facilities were top-notch.",
-          "rating": 3,
-          "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/f9150cbec75046cf9fdb09e2afa9c519.jpeg&size=1080x1080&q=75"
-          ]
-        },
-        {
-          "custName": "Rahul Verma",
-          "date": "2025-01-15",
-          "categoryUsed": "Luxury Tent",
-          "review": "Great value for money. Would love to visit again!",
-          "rating": 5
-        },
-        {
-          "custName": "Meera Joshi",
-          "date": "2025-01-15",
-          "categoryUsed": "Luxury Tent",
-          "review": "An unforgettable camping experience under the stars.",
-          "rating": 4
-        },
-        {
-          "custName": "Simran Kaur",
-          "date": "2025-01-15",
-          "categoryUsed": "Luxury Tent",
-          "review": "Perfect for a romantic getaway with a serene view.",
-          "rating": 5
-        }
-      ],
-      "info": "A serene spot known for its connection to nature at Mountain Bliss Camps.",
-      "activities": [
-        "Bird Watching",
-        "Star Gazing"
-      ],
-      "cancellationPolicy": "Non-refundable after booking.",
-      "specialPackages": [
-        {
-          "name": "Romantic Getaway",
-          "price": 1500
-        },
-        {
-          "name": "Family Adventure",
-          "price": 2000
-        },
-        {
-          "name": "Yoga Retreat",
-          "price": 1200
-        }
-      ],
-      "activitiesDetails": [
-        {
-          "name": "Star Gazing",
-          "difficulty": "Beginner",
-          "duration": "2 hours",
-          "price": 400
-        },
-        {
-          "name": "Nature Walk",
-          "difficulty": "Easy",
-          "duration": "1.5 hours",
-          "price": 200
-        }
-      ],
-      "dynamicPricing": {
-        "weekday": {
-          "actual": 8932,
-          "discounted": 7383
-        },
-        "weekend": {
-          "actual": 10718.4,
-          "discounted": 8859.6
-        },
-        "peakSeason": {
-          "actual": 13398,
-          "discounted": 11074.5
-        }
-      },
-      "localAttractions": [
-        {
-          "name": "Waterfall Trek",
-          "distance": "3 km",
-          "description": "A serene waterfall surrounded by lush greenery."
-        },
-        {
-          "name": "Historical Fort",
-          "distance": "10 km",
-          "description": "A fort with rich history and scenic views."
-        },
-        {
-          "name": "Wildlife Sanctuary",
-          "distance": "15 km",
-          "description": "Home to various exotic flora and fauna."
-        }
-      ],
-      "weather": {
-        "currentTemp": "28°C",
-        "forecast": [
-          "Sunny",
-          "Partly Cloudy",
-          "Rain"
-        ]
-      },
-      "transportation": {
-        "nearestAirport": "50 km",
-        "nearestRailwayStation": "20 km",
-        "shuttleService": true
-      },
-      "healthAndSafety": {
-        "emergencyContact": "+91-1234567890",
-        "firstAidAvailable": true,
-        "covidPrecautions": "Sanitized regularly, mask mandatory in common areas."
-      },
-      "uniqueFeatures": [
-        "Eco-friendly construction",
-        "Solar-powered amenities",
-        "Themed cultural evenings"
-      ],
-      "quantity": 1
-    }
-  ],
-  "cart": [
-    {
-      "id": "8",
-      "campName": "Emerald Lake Camps",
-      "type": "Couple Tent",
-      "freeServices": [
-        "Free Dinner"
-      ],
-      "refundPolicy": "Non-Refundable",
-      "prices": {
-        "actual": 3266,
-        "afterDiscount": 2639
-      },
-      "roomsInACamp": [
-        {
-          "type": "Studio",
-          "beds": "2 Single Beds",
-          "capacity": "Sleeps 6 guests"
-        }
-      ],
-      "about": {
-        "info": "Emerald Lake Camps offers a serene camping experience near natural attractions, with modern amenities, breathtaking views, and various activities to enjoy.",
-        "images": [
-          "https://www.hireacamp.com/api/external/image?name=uploads/d1b2fde09aeb41a4af831b0f151911b8.jpeg&size=1920x1920&q=75",
-          "https://www.hireacamp.com/api/external/image?name=uploads/13a90955933743efac5d5e62f2d3f64e.jpeg&size=2048x2048&q=75",
-          "https://www.hireacamp.com/api/external/image?name=uploads/e23a0e71f5864778862806b97ff66944.jpeg&size=2048x2048&q=75",
-          "https://www.hireacamp.com/api/external/image?name=uploads/fb65cce9f7d1473ea79736a4b4789409.jpeg&size=2048x2048&q=75",
-          "https://www.hireacamp.com/api/external/image?name=uploads/d4cbc9e3f97d4cdda212cd668334a9e9.jpeg&size=1920x1920&q=75"
-        ]
-      },
-      "address": {
-        "village": "Village near Emerald Lake Camps",
-        "tal": "Palghar",
-        "dist": "Thane",
+        "village": "Village near Aurora Skyline Residences",
+        "tal": "Taluka near Aurora Skyline Residences",
+        "dist": "District near Aurora Skyline Residences",
         "location": "https://maps.app.goo.gl/Spot100Location",
         "map": "<iframe src='https://www.google.com/maps/embed?pb=...' width='600' height='450' style='border:0;'></iframe>",
-        "landmark": "Landmark near Emerald Lake Camps"
+        "landmark": "Near Pawna Dam, Spot 100"
       },
       "amenities": [
-        "Barbeque",
-        "Caretaker",
+        "Restaurant",
         "Bonfire",
-        "Lawn",
-        "Game Room",
-        "Swimming Pool"
+        "Swimming Pool",
+        "Lawn"
       ],
       "propertyLayout": {
         "RoomOptions": [
           {
-            "img": "https://www.hireacamp.com/api/external/image?name=uploads/13a90955933743efac5d5e62f2d3f64e.jpeg&size=2048x2048&q=75",
-            "qty": 3,
-            "name": "Couple Tent",
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/3e64934d102440d0939be1adfaefa154.jpeg&size=3840x3840&q=75",
+            "qty": 4,
+            "name": "King Suite",
             "beds": "1 Queen Bed + Sofa",
-            "extra": "Mountain View"
+            "extra": "Sea View"
           }
         ],
         "sharedOptions": [
           {
-            "img": "https://www.hireacamp.com/api/external/image?name=uploads/1cfd32e39aff4335a61f1ed057888a56.jpeg&size=1920x1920&q=75",
-            "qty": 1,
-            "name": "Shared Lounge",
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/715aadba442b4dc8ba86d9174fe101af.jpeg&size=3840x3840&q=75",
+            "qty": 2,
+            "name": "Shared Bathroom",
             "beds": "",
             "extra": [
-              "Microwave",
-              "Refrigerator"
+              "Hair Dryer",
+              "Toiletries"
             ]
           }
         ]
@@ -74646,7 +74543,8 @@
         {
           "isMealProvided": true,
           "mealsOffered": [
-            "Dinner"
+            "Dinner",
+            "Breakfast"
           ],
           "veg": true,
           "non-veg": true,
@@ -74654,63 +74552,52 @@
         }
       ],
       "ratings": {
-        "location": 4.6,
-        "cleanliness": 4.4,
-        "valueForMoney": 3.4,
-        "food": 4.1,
-        "facilities": 4.3,
-        "checkInExperience": 3.9
+        "location": 4.7,
+        "cleanliness": 3.7,
+        "valueForMoney": 3.7,
+        "food": 4.3,
+        "facilities": 3.8,
+        "checkInExperience": 3.6
       },
       "reviews": [
         {
-          "custName": "Akshay Sathe",
-          "date": "Sep 14, 2024",
-          "categoryUsed": "Luxury Apartment",
-          "review": "A wonderful place to unwind with friends and family.",
-          "rating": "4.6",
-          "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/a656eec9c48a482cac768778f92fe127.jpeg&size=1920x1920&q=75",
-            "https://www.hireacamp.com/api/external/image?name=uploads/d1b2fde09aeb41a4af831b0f151911b8.jpeg&size=1920x1920&q=75"
-          ]
-        },
-        {
-          "custName": "Rohan Deshmukh",
-          "date": "Nov 18, 2024",
-          "categoryUsed": "Luxury Apartment",
-          "review": "A memorable stay with outstanding service.",
-          "rating": "3.8",
-          "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/13a90955933743efac5d5e62f2d3f64e.jpeg&size=2048x2048&q=75"
-          ]
-        },
-        {
-          "custName": "Sneha Jadhav",
-          "date": "Oct 11, 2024",
-          "categoryUsed": "Luxury Apartment",
-          "review": "Amazing experience! The location was perfect for a relaxing stay.",
-          "rating": "4.5",
-          "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/9a4c024e296648de8e6132d3095e89d6.jpeg&size=1920x1920&q=75"
-          ]
-        },
-        {
-          "custName": "Pooja Gawde",
-          "date": "Jan 12, 2025",
+          "custName": "Amol Patil",
+          "date": "Jan 13, 2025",
           "categoryUsed": "Luxury Apartment",
           "review": "Enjoyed the serene environment and the facilities.",
-          "rating": "3.9",
+          "rating": "4.3",
           "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/0e2e3c3b43164ac7aa3c8931f36699f0.jpeg&size=1920x1920&q=75"
+            "https://www.hireacamp.com/api/external/image?name=uploads/667f0df3abf040c4b772b94721ebe71c.jpeg&size=3840x3840&q=75"
           ]
         },
         {
           "custName": "Swapnil Shinde",
-          "date": "Oct 11, 2024",
+          "date": "Dec 28, 2024",
           "categoryUsed": "Luxury Apartment",
-          "review": "Enjoyed the serene environment and the facilities.",
-          "rating": "4.9",
+          "review": "Highly recommended for nature lovers!",
+          "rating": "3.8",
           "imgs": [
-            "https://www.hireacamp.com/api/external/image?name=uploads/a4c4ff6462064eb6a8c806cec736c9c4.jpeg&size=1920x1920&q=75"
+            "https://www.hireacamp.com/api/external/image?name=uploads/f6924bef5bf442acb60f85a5ff8020b9.jpeg&size=3840x3840&q=75"
+          ]
+        },
+        {
+          "custName": "Neha Pawar",
+          "date": "Jan 10, 2025",
+          "categoryUsed": "Luxury Apartment",
+          "review": "Loved the amenities and the cleanliness of the property.",
+          "rating": "3.7",
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/cbd1640af2684371a8ec39697dd86935.jpeg&size=3840x3840&q=75"
+          ]
+        },
+        {
+          "custName": "Amol Patil",
+          "date": "Oct 07, 2024",
+          "categoryUsed": "Luxury Apartment",
+          "review": "Loved the amenities and the cleanliness of the property.",
+          "rating": "4.7",
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/667f0df3abf040c4b772b94721ebe71c.jpeg&size=3840x3840&q=75    "
           ]
         }
       ],
@@ -74788,219 +74675,729 @@
         "Maharashtrian Cuisine",
         "Traditional Décor"
       ],
+      "stayType": "apartments",
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "campName": "Golden Canopy Glamping",
+      "type": "Adventure Tent",
+      "freeServices": [
+        "Campfire Experience"
+      ],
+      "refundPolicy": "Partially Refundable",
+      "prices": {
+        "actual": 3991,
+        "afterDiscount": 3021
+      },
+      "roomsInACamp": [
+        {
+          "type": "Traditional Bamboo Hut",
+          "beds": "1 Double Bed with Local Handmade Sheets",
+          "capacity": "sleeps 2 guests comfortably"
+        }
+      ],
+      "about": {
+        "info": "Golden Canopy Glamping offers a tranquil stay with scenic beauty in Thane.",
+        "images": [
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/4b/31/db/paradise-tent-resort.jpg?w=900&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/d2/18/f9/photo4jpg.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/4b/35/ae/paradise-tent-resort.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/d2/18/fa/photo5jpg.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/4b/31/09/paradise-tent-resort.jpg?w=1200&h=-1&s=1"
+        ]
+      },
+      "address": {
+        "landmark": "Landmark near Golden Canopy Glamping",
+        "village": "Village near Evergreen Retreat",
+        "tal": "Gangapur",
+        "dist": "Aurangabad",
+        "location": "19.951610698601634, 73.60646416473668"
+      },
+      "amenities": [
+        "Bonfire",
+        "Yoga Sessions"
+      ],
+      "propertyLayout": {
+        "roomOptions": [
+          {
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/abc969e3add94eb6a668c75af53c442b.jpeg&size=3840x3840&q=75",
+            "qty": 4,
+            "name": "Deluxe Tent",
+            "beds": "1 Queen Bed",
+            "extra": "Garden View"
+          }
+        ],
+        "sharedOptions": [
+          {
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/e1ea2d5b86e34eb3832fa0d725722e89.jpeg&size=1080x1080&q=75",
+            "qty": 3,
+            "name": "Shared Bathroom",
+            "beds": "2",
+            "extra": [
+              "Solar-heated water"
+            ]
+          }
+        ]
+      },
+      "foodDining": [
+        {
+          "isMealProvided": true,
+          "mealsOffered": [
+            "Authentic Maharashtrian Dinner",
+            "Breakfast",
+            "Snacks",
+            "Desserts",
+            "Evening Tea/Coffee"
+          ],
+          "veg": true,
+          "non-veg": false,
+          "isOutsideFoodAllowed": false
+        }
+      ],
+      "ratings": {
+        "location": 5,
+        "cleanliness": 3.5,
+        "valueForMoney": 4,
+        "food": 3.8,
+        "facilities": 4.9,
+        "checkInExperience": 4.5
+      },
+      "reviews": [
+        {
+          "custName": "Meera Joshi",
+          "date": "7-1-2024",
+          "categoryUsed": "Deluxe Tent",
+          "review": "A comfortable stay with great food options. Highly recommend!",
+          "rating": 5,
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/e1ea2d5b86e34eb3832fa0d725722e89.jpeg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/f04c94dbfa1b4ceb92c7836c99a0007b.jpeg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/0472f070a81c4fb59a0a89c3a47d1d26.jpeg&size=1080x1080&q=75"
+          ]
+        },
+        {
+          "custName": "Arjun Nair",
+          "date": "25-7-2022",
+          "categoryUsed": "Deluxe Tent",
+          "review": "The food was delicious, and the tents were very comfortable.",
+          "rating": 4,
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/138bf57b07254f4195b10941e0bcad05.jpeg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/65e003620cf44554957fcdf832b3130a.jpeg&size=1080x1080&q=75"
+          ]
+        },
+        {
+          "custName": "Neha Kapoor",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "Loved the peaceful surroundings and the bonfire experience.",
+          "rating": 5
+        },
+        {
+          "custName": "Meera Joshi",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "Great value for money. Would love to visit again!",
+          "rating": 4
+        },
+        {
+          "custName": "Meera Joshi",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "Great value for money. Would love to visit again!",
+          "rating": 5
+        }
+      ],
+      "info": "A serene spot known for its connection to nature at Evergreen Retreat.",
+      "activities": [
+        "Bird Watching",
+        "Star Gazing"
+      ],
+      "cancellationPolicy": "Non-refundable after booking.",
+      "specialPackages": [
+        {
+          "name": "Romantic Getaway",
+          "price": 1500
+        },
+        {
+          "name": "Family Adventure",
+          "price": 2000
+        },
+        {
+          "name": "Yoga Retreat",
+          "price": 1200
+        }
+      ],
+      "activitiesDetails": [
+        {
+          "name": "Star Gazing",
+          "difficulty": "Beginner",
+          "duration": "2 hours",
+          "price": 400
+        },
+        {
+          "name": "Nature Walk",
+          "difficulty": "Easy",
+          "duration": "1.5 hours",
+          "price": 200
+        }
+      ],
+      "dynamicPricing": {
+        "weekday": {
+          "actual": 3991,
+          "discounted": 3021
+        },
+        "weekend": {
+          "actual": 4789.2,
+          "discounted": 3625.2
+        },
+        "peakSeason": {
+          "actual": 5986.5,
+          "discounted": 4531.5
+        }
+      },
+      "localAttractions": [
+        {
+          "name": "Waterfall Trek",
+          "distance": "3 km",
+          "description": "A serene waterfall surrounded by lush greenery."
+        },
+        {
+          "name": "Historical Fort",
+          "distance": "10 km",
+          "description": "A fort with rich history and scenic views."
+        },
+        {
+          "name": "Wildlife Sanctuary",
+          "distance": "15 km",
+          "description": "Home to various exotic flora and fauna."
+        }
+      ],
+      "weather": {
+        "currentTemp": "28°C",
+        "forecast": [
+          "Sunny",
+          "Partly Cloudy",
+          "Rain"
+        ]
+      },
+      "transportation": {
+        "nearestAirport": "50 km",
+        "nearestRailwayStation": "20 km",
+        "shuttleService": true
+      },
+      "healthAndSafety": {
+        "emergencyContact": "+91-1234567890",
+        "firstAidAvailable": true,
+        "covidPrecautions": "Sanitized regularly, mask mandatory in common areas."
+      },
+      "uniqueFeatures": [
+        "Eco-friendly construction",
+        "Solar-powered amenities",
+        "Themed cultural evenings"
+      ],
+      "stayType": "tent",
+      "quantity": 1
+    },
+    {
+      "id": "4",
+      "campName": "Aurora Valley Camps",
+      "type": "Eco Tent",
+      "freeServices": [
+        "Free WiFi"
+      ],
+      "refundPolicy": "Fully Refundable",
+      "prices": {
+        "actual": 3735,
+        "afterDiscount": 2762
+      },
+      "roomsInACamp": [
+        {
+          "type": "Traditional Bamboo Hut",
+          "beds": "1 Double Bed with Local Handmade Sheets",
+          "capacity": "sleeps 2 guests comfortably"
+        }
+      ],
+      "about": {
+        "info": "Aurora Valley Camps offers a tranquil stay with scenic beauty in Nashik.",
+        "images": [
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/98/ec/e9/paradise-tent-resort.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/98/ec/b4/paradise-tent-resort.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/98/ed/00/paradise-tent-resort.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/98/ed/00/paradise-tent-resort.jpg?w=1200&h=-1&s=1",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/98/ed/98/paradise-tent-resort.jpg?w=900&h=-1&s=1"
+        ]
+      },
+      "address": {
+        "landmark": "Landmark near Aurora Valley Camps",
+        "village": "Village near Hilltop Haven",
+        "tal": "Karvir",
+        "dist": "Kolhapur",
+        "location": "https://maps.app.goo.gl/QMyuhDWn6MmUd2CPA"
+      },
+      "amenities": [
+        "Trekking",
+        "Yoga Sessions"
+      ],
+      "propertyLayout": {
+        "roomOptions": [
+          {
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/4afa0476f5994717be5001c8145667e2.jpg&size=1080x1080&q=75",
+            "qty": 4,
+            "name": "Luxury Tent",
+            "beds": "1 Queen Bed",
+            "extra": "Garden View"
+          }
+        ],
+        "sharedOptions": [
+          {
+            "img": "https://www.hireacamp.com/api/external/image?name=uploads/15c1de0bfbe443dfbd8c7df2d1a46c9c.jpeg&size=1080x1080&q=75",
+            "qty": 2,
+            "name": "Shared Bathroom",
+            "beds": "",
+            "extra": [
+              "Solar-heated water"
+            ]
+          }
+        ]
+      },
+      "foodDining": [
+        {
+          "isMealProvided": true,
+          "mealsOffered": [
+            "Authentic Maharashtrian Dinner",
+            "Breakfast",
+            "Snacks",
+            "Desserts",
+            "Evening Tea/Coffee"
+          ],
+          "veg": true,
+          "non-veg": false,
+          "isOutsideFoodAllowed": false
+        }
+      ],
+      "ratings": {
+        "location": 3.7,
+        "cleanliness": 4.7,
+        "valueForMoney": 3.4,
+        "food": 4.5,
+        "facilities": 3.5,
+        "checkInExperience": 3.8
+      },
+      "reviews": [
+        {
+          "custName": "Rahul Verma",
+          "date": "25-3-2023",
+          "categoryUsed": "Standard Tent",
+          "review": "An unforgettable camping experience under the stars.",
+          "rating": 4,
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/07846208b9394202b041a0b5fadfece5.jpeg&size=3840x3840&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/0d65dfb9e62e4f3b9b6df0f7439e3da9.jpg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/bf97846fa6ac4fe0932bfff8934401f2.jpeg&size=1080x1080&q=75"
+          ]
+        },
+        {
+          "custName": "Priya Menon",
+          "date": "21-1-2024",
+          "categoryUsed": "Standard Tent",
+          "review": "Enjoyed the yoga sessions and the peaceful environment.",
+          "rating": 5,
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/70bc5a57119a47c990bddab29430a47f.jpg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/309f8cc0c9484e0497ed418f24fad64e.jpg&size=1080x1080&q=75"
+          ]
+        },
+        {
+          "custName": "Simran Kaur",
+          "date": "8-8-2023",
+          "categoryUsed": "Deluxe Tent",
+          "review": "Perfect for a romantic getaway with a serene view.",
+          "rating": 4,
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/5125fc215d984eb2a1f6ac83db9570f1.jpg&size=1080x1080&q=75",
+            "https://www.hireacamp.com/api/external/image?name=uploads/d0d334173fd9444f900665c6a6f1b001.jpg&size=1080x1080&q=75"
+          ]
+        },
+        {
+          "custName": "Vikram Das",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "A memorable experience with thrilling adventure activities.",
+          "rating": 5
+        },
+        {
+          "custName": "Rohit Sharma",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "Loved the peaceful surroundings and the bonfire experience.",
+          "rating": 4
+        },
+        {
+          "custName": "Rohit Sharma",
+          "date": "2025-01-15",
+          "categoryUsed": "Luxury Tent",
+          "review": "Enjoyed the yoga sessions and the peaceful environment.",
+          "rating": 5
+        }
+      ],
+      "info": "A serene spot known for its connection to nature at Hilltop Haven.",
+      "activities": [
+        "Zip Lining",
+        "River Rafting",
+        "Paragliding"
+      ],
+      "cancellationPolicy": "Free cancellation up to 48 hours before check-in.",
+      "specialPackages": [
+        {
+          "name": "Romantic Getaway",
+          "price": 1500
+        },
+        {
+          "name": "Family Adventure",
+          "price": 2000
+        },
+        {
+          "name": "Yoga Retreat",
+          "price": 1200
+        }
+      ],
+      "activitiesDetails": [
+        {
+          "name": "Zip Lining",
+          "difficulty": "Intermediate",
+          "duration": "1 hour",
+          "price": 500
+        },
+        {
+          "name": "River Rafting",
+          "difficulty": "Advanced",
+          "duration": "3 hours",
+          "price": 1200
+        },
+        {
+          "name": "Bird Watching",
+          "difficulty": "Beginner",
+          "duration": "2 hours",
+          "price": 300
+        }
+      ],
+      "dynamicPricing": {
+        "weekday": {
+          "actual": 3735,
+          "discounted": 2762
+        },
+        "weekend": {
+          "actual": 4482,
+          "discounted": 3314.4
+        },
+        "peakSeason": {
+          "actual": 5602.5,
+          "discounted": 4143
+        }
+      },
+      "localAttractions": [
+        {
+          "name": "Waterfall Trek",
+          "distance": "3 km",
+          "description": "A serene waterfall surrounded by lush greenery."
+        },
+        {
+          "name": "Historical Fort",
+          "distance": "10 km",
+          "description": "A fort with rich history and scenic views."
+        },
+        {
+          "name": "Wildlife Sanctuary",
+          "distance": "15 km",
+          "description": "Home to various exotic flora and fauna."
+        }
+      ],
+      "weather": {
+        "currentTemp": "28°C",
+        "forecast": [
+          "Sunny",
+          "Partly Cloudy",
+          "Rain"
+        ]
+      },
+      "transportation": {
+        "nearestAirport": "50 km",
+        "nearestRailwayStation": "20 km",
+        "shuttleService": true
+      },
+      "healthAndSafety": {
+        "emergencyContact": "+91-1234567890",
+        "firstAidAvailable": true,
+        "covidPrecautions": "Sanitized regularly, mask mandatory in common areas."
+      },
+      "uniqueFeatures": [
+        "Eco-friendly construction",
+        "Solar-powered amenities",
+        "Themed cultural evenings"
+      ],
+      "stayType": "tent",
+      "quantity": 1
+    }
+  ],
+  "cart": [
+    {
+      "id": "2",
+      "campName": "Misty Pines Retreat",
+      "type": "Couple",
+      "freeServices": [
+        "Complimentary Drinks",
+        "Free WiFi",
+        "Free Breakfast"
+      ],
+      "refundPolicy": "Partially Refundable",
+      "prices": {
+        "actual": 5362,
+        "afterDiscount": 4541
+      },
+      "roomsInACamp": [
+        {
+          "type": "1 Bedroom",
+          "beds": "1 Double Bed",
+          "capacity": "sleeps 2 guests"
+        }
+      ],
+      "about": {
+        "info": "Misty Pines Retreat offers a peaceful and luxurious retreat surrounded by nature. Located in a picturesque setting, it's perfect for families, couples, and solo travelers.",
+        "images": [
+          "https://www.hireacamp.com/api/external/image?name=uploads/fa60c7813346435599ac0133e318e5eb.jpeg&size=2048x2048&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/ac25564b02e6479b9177c1e6c01aac99.jpeg&size=1920x1920&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/2c3300c96c94462b978c15215abf0595.jpeg&size=1920x1920&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/42084b98b46548588fa49647286028b9.jpeg&size=2048x2048&q=75",
+          "https://www.hireacamp.com/api/external/image?name=uploads/c658c7c0ece3432296efe78780bd505c.jpeg&size=2048x2048&q=75"
+        ]
+      },
+      "address": {
+        "village": "Pawna Nagar",
+        "tal": "Chiplun",
+        "dist": "Ratnagiri",
+        "location": "https://maps.app.goo.gl/Spot100Location",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=...' width='600' height='450' style='border:0;'></iframe>",
+        "landmark": "Landmark near Misty Pines Retreat"
+      },
+      "amenities": [
+        "Barbeque",
+        "Caretaker",
+        "Bonfire",
+        "Restaurant",
+        "Swimming Pool",
+        "Garden"
+      ],
+      "propertyLayout": {
+        "roomOptions": [
+          {
+            "img": "https://www.example.com/image1.jpg",
+            "qty": 2,
+            "name": "Deluxe Cottage",
+            "beds": "1 Queen Bed",
+            "extra": "Valley View"
+          },
+          {
+            "img": "https://www.example.com/image2.jpg",
+            "qty": 3,
+            "name": "Maharashtrian Style Wada Room",
+            "beds": "2 Single Beds",
+            "extra": "Heritage View"
+          }
+        ],
+        "sharedOptions": [
+          {
+            "img": "https://www.example.com/image3.jpg",
+            "qty": 1,
+            "name": "Common Lounge",
+            "beds": "",
+            "extra": [
+              "Cozy Seating",
+              "Tea & Snacks"
+            ]
+          }
+        ]
+      },
+      "foodDining": [
+        {
+          "isMealProvided": true,
+          "mealsOffered": [
+            "Dinner",
+            "Breakfast"
+          ],
+          "veg": true,
+          "non-veg": true,
+          "isOutsideFoodAllowed": "true"
+        }
+      ],
+      "ratings": {
+        "location": 4,
+        "cleanliness": 3.5,
+        "valueForMoney": 4.6,
+        "food": 3.9,
+        "facilities": 4.6,
+        "checkInExperience": 3.9
+      },
+      "reviews": [
+        {
+          "custName": "Akshay Sathe",
+          "date": "Dec 17, 2024",
+          "categoryUsed": "Luxury Apartment",
+          "review": "Amazing experience! The location was perfect for a relaxing stay.",
+          "rating": "4.4",
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/7c71415e9bc04eabb5f1aa2e53f41074.jpeg&size=1920x1920&q=75"
+          ]
+        },
+        {
+          "custName": "Neha Pawar",
+          "date": "Aug 09, 2024",
+          "categoryUsed": "Luxury Apartment",
+          "review": "Loved the amenities and the cleanliness of the property.",
+          "rating": "3.8",
+          "imgs": [
+            "https://www.hireacamp.com/api/external/image?name=uploads/bd81c834fab242d6bf4b7f77c3b4f8a1.jpeg&size=1920x1920&q=75"
+          ]
+        }
+      ],
+      "info": "",
+      "activities": [
+        "Killa Darshan",
+        "Kolhapuri Handicraft Shopping",
+        "Paithani Weaving Tour"
+      ],
+      "cancellationPolicy": "Free cancellation up to 48 hours before check-in.",
+      "specialPackages": [
+        {
+          "name": "Konkan Beach Retreat",
+          "price": 3454
+        },
+        {
+          "name": "Panchgani Hill Stay",
+          "price": 3741
+        },
+        {
+          "name": "Maharashtrian Culinary Tour",
+          "price": 3022
+        }
+      ],
+      "activitiesDetails": [
+        {
+          "name": "Killa Darshan",
+          "difficulty": "Moderate",
+          "duration": "3 hours",
+          "price": 777
+        },
+        {
+          "name": "Warli Painting Workshop",
+          "difficulty": "Beginner",
+          "duration": "2 hours",
+          "price": 522
+        },
+        {
+          "name": "Kolhapuri Handicraft Tour",
+          "difficulty": "Easy",
+          "duration": "1.5 hours",
+          "price": 415
+        }
+      ],
+      "dynamicPricing": {
+        "weekday": {
+          "actual": 4001,
+          "discounted": 5789
+        },
+        "weekend": {
+          "actual": 7208,
+          "discounted": 8017
+        },
+        "peakSeason": {
+          "actual": 8916,
+          "discounted": 10721
+        }
+      },
+      "localAttractions": [
+        {
+          "name": "Sinhagad Fort",
+          "distance": "12 km",
+          "description": "A historic fort with stunning views."
+        },
+        {
+          "name": "Shivneri Fort",
+          "distance": "25 km",
+          "description": "Birthplace of Chhatrapati Shivaji Maharaj."
+        },
+        {
+          "name": "Ganpatipule Beach",
+          "distance": "30 km",
+          "description": "A serene beach with a famous temple."
+        }
+      ],
+      "weather": {
+        "currentTemp": "29°C",
+        "forecast": [
+          "Sunny",
+          "Pleasant Breeze",
+          "Cool Evenings"
+        ]
+      },
+      "transportation": {
+        "nearestAirport": "73 km",
+        "nearestRailwayStation": "66 km",
+        "shuttleService": true
+      },
+      "healthAndSafety": {
+        "emergencyContact": "+91-8695304315",
+        "firstAidAvailable": true,
+        "covidPrecautions": "Sanitized daily, mask recommended in common areas."
+      },
+      "uniqueFeatures": [
+        "Traditional Maharashtrian Wada Stay",
+        "Farm-to-Table Organic Meals",
+        "Folk Dance & Music Nights"
+      ],
+      "stayType": "tent",
       "quantity": 1
     }
   ],
   "bookNow": [
     {
-      "id": "8f49",
+      "id": "6f4f",
       "bookings": [
         {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-04-01",
-          "toDate": "2025-04-02",
+          "campId": "2",
+          "campName": "Misty Pines Retreat",
+          "fromDate": "2025-03-09",
+          "toDate": "2025-03-10",
           "adults": 1,
           "children": 1,
           "totalGuests": 2,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
+          "pricePerNight": 4541,
+          "totalPrice": 4541
         }
       ]
     },
     {
-      "id": "7a3b",
+      "id": "869d",
       "bookings": [
         {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-03",
-          "toDate": "2025-03-04",
+          "campId": "2",
+          "campName": "Misty Pines Retreat",
+          "fromDate": "2025-03-10",
+          "toDate": "2025-03-11",
           "adults": 1,
           "children": 1,
           "totalGuests": 2,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "965f",
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-04",
-          "toDate": "2025-03-05",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 16515,
-          "totalPrice": 66060
-        }
-      ]
-    },
-    {
-      "id": "3c23",
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-04",
-          "toDate": "2025-03-05",
-          "adults": 1,
-          "children": 1,
-          "totalGuests": 2,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "ca16",
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-04",
-          "toDate": "2025-03-05",
-          "adults": 1,
-          "children": 0,
-          "totalGuests": 1,
-          "pricePerNight": 17329,
-          "totalPrice": 17329
-        }
-      ]
-    },
-    {
-      "id": "2ecd",
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-04",
-          "toDate": "2025-03-05",
-          "adults": 1,
-          "children": 0,
-          "totalGuests": 1,
-          "pricePerNight": 17329,
-          "totalPrice": 17329
-        }
-      ]
-    },
-    {
-      "id": "04d6",
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-04",
-          "toDate": "2025-03-05",
-          "adults": 1,
-          "children": 1,
-          "totalGuests": 2,
-          "pricePerNight": 17329,
-          "totalPrice": 17329
+          "pricePerNight": 4541,
+          "totalPrice": 4541
         }
       ]
     }
   ],
   "bookingDetails": [
     {
-      "id": "51f4",
-      "userId": "m7rydpkq",
-      "userDetails": {
-        "name": "Aditya Nathe",
-        "email": "adityanathe72@gmail.com",
-        "phone": "91 9359803710",
-        "paymentMethod": "Credit Card"
-      },
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "2f73",
-      "userId": "m7ryfd4h",
-      "userDetails": {
-        "name": "Mrudul",
-        "email": "mrudul1@gmail.com",
-        "phone": "9359803111",
-        "paymentMethod": "UPI"
-      },
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "f306",
-      "userId": "m7ryhk75",
-      "userDetails": {
-        "name": "Harish Dubey",
-        "email": "harishdubey@gmail.com",
-        "phone": "9999999999",
-        "paymentMethod": "Cash on Arrival"
-      },
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "ad94",
-      "userId": "m7rym4fx",
-      "userDetails": {
-        "name": "Aditya Nathe",
-        "email": "adityanathe72@gmail.com",
-        "phone": "9359803710",
-        "paymentMethod": "Net Banking"
-      },
-      "bookings": [
-        {
-          "campId": "3",
-          "campName": "Tranquil Nest Treehouse",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 16515,
-          "totalPrice": 33030
-        }
-      ]
-    },
-    {
-      "id": "5ef4",
-      "userId": "m7sla7hv",
+      "id": "17bf",
+      "userId": "m7zrr86b",
       "userDetails": {
         "name": "Aditya Nathe",
         "email": "adityanathe72@gmail.com",
@@ -75009,107 +75406,38 @@
       },
       "bookings": [
         {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
+          "campId": "2",
+          "campName": "Misty Pines Retreat",
           "fromDate": "2025-03-02",
           "toDate": "2025-03-04",
           "adults": 2,
           "children": 2,
           "totalGuests": 4,
-          "pricePerNight": 17329,
-          "totalPrice": 34658
+          "pricePerNight": 4541,
+          "totalPrice": 9082
         }
       ]
     },
     {
-      "id": "c49e",
-      "userId": "m7slabl9",
+      "id": "0d72",
+      "userId": "m7zrtcx5",
       "userDetails": {
         "name": "Aditya Nathe",
-        "email": "adityanathe72@gmail.com",
+        "email": "admin1@gmail.com",
         "phone": "9359803710",
         "paymentMethod": "UPI"
       },
       "bookings": [
         {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
+          "campId": "2",
+          "campName": "Misty Pines Retreat",
           "fromDate": "2025-03-02",
           "toDate": "2025-03-04",
           "adults": 2,
           "children": 2,
           "totalGuests": 4,
-          "pricePerNight": 17329,
-          "totalPrice": 34658
-        }
-      ]
-    },
-    {
-      "id": "b120",
-      "userId": "m7slai15",
-      "userDetails": {
-        "name": "Aditya Nathe",
-        "email": "adityanathe72@gmail.com",
-        "phone": "9359803710",
-        "paymentMethod": "UPI"
-      },
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 17329,
-          "totalPrice": 34658
-        }
-      ]
-    },
-    {
-      "id": "583f",
-      "userId": "m7smfm6d",
-      "userDetails": {
-        "name": "Akshay",
-        "email": "akshay2@gmail.com",
-        "phone": "9999999999",
-        "paymentMethod": "Net Banking"
-      },
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 17329,
-          "totalPrice": 34658
-        }
-      ]
-    },
-    {
-      "id": "3776",
-      "userId": "m7smfmdd",
-      "userDetails": {
-        "name": "Akshay",
-        "email": "akshay2@gmail.com",
-        "phone": "9999999999",
-        "paymentMethod": "Net Banking"
-      },
-      "bookings": [
-        {
-          "campId": "36",
-          "campName": "Golden Ridge Retreat",
-          "fromDate": "2025-03-02",
-          "toDate": "2025-03-04",
-          "adults": 2,
-          "children": 2,
-          "totalGuests": 4,
-          "pricePerNight": 17329,
-          "totalPrice": 34658
+          "pricePerNight": 4541,
+          "totalPrice": 9082
         }
       ]
     }
