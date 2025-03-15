@@ -8,7 +8,6 @@ const SaffranStays = lazy(() => import('../SaffranStays'));
 const AllStays = lazy(() => import('../Stays/AllStays'));
 const SignUp = lazy(() => import('../Pages/SignUp'));
 const SignIn = lazy(() => import('../Pages/SignIn'));
-const Admin = lazy(() => import('../Admin/Admin'));
 const PageNotFound = lazy(() => import('../Pages/PageNotFound'));
 const About = lazy(() => import('../Pages/About'));
 const ContactUs = lazy(() => import('../Pages/ContactUs'));
