@@ -5,7 +5,6 @@ import { staysContext } from '../AppContext/TentsContext';
 import { BiLeaf } from "react-icons/bi";
 import { BsFire } from "react-icons/bs";
 import StarIcon from '@mui/icons-material/Star';
-import yoga from '../../assets/HomePage/yoga.png'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -134,7 +133,7 @@ const AllCottages = () => {
                 }}
             >
                 {currentTents.length === 0 ? (
-                    <Typography className="text-xl text-gray-500 font-semibold col-span-full">No Product found. Please try a different category or filter.</Typography>
+                    <Typography className="col-span-full text-gray-500 text-xl font-semibold">No Product found. Please try a different category or filter.</Typography>
 
                 ) :
                     (currentTents.map((val, i) => (
@@ -161,16 +160,8 @@ const AllCottages = () => {
                                     src={val.about.images[currentImageIndex]} // Display current image based on the index
                                     sx={{ width: "100%", height: { xs: "200px", sm: "250px", md: "300px" }, borderRadius: "10px", objectFit: "cover", position: "absolute", }}
                                 />
-                                <Typography variant="body2" color="black" sx={{ position: "absolute", backgroundColor: "transparent", borderRadius: "10px", width: "100%", display: "flex", justifyContent: "space-between", p: 1 }}>
-                                    <Box sx={{ display: "flex" }} class="hidden md:flex">
-                                        <Box sx={{ width: "30px", height: "30px", backgroundColor: "white", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, mb: 1 }}>
-                                            <Box component='img' src={yoga} sx={{ width: "20px", objectFit: "fill" }} />
-                                        </Box>
-                                        <Typography sx={{ width: "30px", height: "30px", backgroundColor: "white", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", mr: 1, mb: 1 }}>
-                                            <BsFire color="orange" />
-                                        </Typography>
-                                    </Box>
-                                    <span className="bg-white p-1 rounded-lg font-bold h-7 " >
+                                <Typography variant="body2" color="black" sx={{ position: "absolute", backgroundColor: "transparent", borderRadius: "10px", width: "100%", display: "flex", justifyContent: "end", p: 1 }}>
+                                    <span className="bg-white h-7 p-1 rounded-lg font-bold" >
                                         <StarIcon sx={{ color: "orange", fontSize: "20px" }} />{val.ratings.location} | {val.weather.currentTemp}
                                     </span>
                                 </Typography>

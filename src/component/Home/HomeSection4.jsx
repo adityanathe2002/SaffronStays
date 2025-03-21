@@ -42,6 +42,7 @@ const HomeSection4 = () => {
                 if (response.status === 200) {
                     updatedBookmark = updatedBookmark.filter((item) => item !== val.stayType); // Correct removal
                     setAddBookmark(updatedBookmark);
+
                 } else {
                     toast.error("Failed to remove from bookmark. Please try again.");
                 }
@@ -90,6 +91,7 @@ const HomeSection4 = () => {
                 if (response.status === 200 || response.status === 201) {
                     updatedBookmark.push(stayType);
                     setAddBookmark(updatedBookmark);
+                    toast.success("Successfuly added to Bookmark")
                 } else {
                     toast.error("Failed to add to Bookmark. Please try again.");
                 }

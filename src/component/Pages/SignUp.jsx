@@ -110,39 +110,6 @@ const SignUp = () => {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!validateForm()) return;
-
-  //   const data = {
-  //     username: state.username,
-  //     email: state.email,
-  //     contact: state.contact,
-  //     password: state.password,
-  //   };
-
-  //   try {
-  //     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  //     const userExists = existingUsers.some(user => user.email === state.email);
-
-  //     if (userExists) {
-  //       dispatch({ type: "SET_ERROR", value: "User with this email already exists!" });
-  //       return;
-  //     }
-
-  //     existingUsers.push(data);
-  //     localStorage.setItem("users", JSON.stringify(existingUsers));
-
-  //     dispatch({ type: "SET_SUCCESS", value: "Sign up successful!" });
-  //     toast.success("Sign Up successful!", { duration: 2000 });
-
-  //     setTimeout(() => navigate("/login"), 2000);
-  //   } catch (error) {
-  //     console.error("Signup error:", error);
-  //     dispatch({ type: "SET_ERROR", value: "Signup failed! Please try again." });
-  //   }
-  // };
-
   return (
     <Box
       sx={{

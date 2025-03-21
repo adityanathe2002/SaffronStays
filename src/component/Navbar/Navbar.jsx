@@ -140,7 +140,6 @@ const Navbar = () => {
                 {/* Logo */}
                 <Box
                     className="flex items-center gap-2 sm:w-28" sx={{ fontSize: { xs: '14px', sm: '16px' }, gap: { xs: '1rem', sm: '2rem' } }}>
-                    {/* <Box component="img" class="hidden sm:block" src={Logo} sx={{ width: { xs: '20px', md: '40px', lg:"30px" }, height:{xs:"20px", sm:"40px", lg:"30px"} }} /> */}
                     <Typography variant="h6" sx={{ fontFamily: "'Waltograph', sans-serif", fontSize: { xs: '16px', sm: '20px', lg: '20px' }, fontWeight: "500" }}>
                         <Link to='/'> SaffronStays</Link>
                     </Typography>
@@ -150,7 +149,7 @@ const Navbar = () => {
                 {/* Desktop Navigation */}
                 <Box
                     sx={{ width: "45%", color: "darkMode" ? "white" : "black", }}
-                    className="hidden md:flex gap-6 ">
+                    className="hidden md:flex justify-center gap-6 ">
                     {navLinks.map((link, index) => (
                         <Link to={link.to} >
                             <NavLink

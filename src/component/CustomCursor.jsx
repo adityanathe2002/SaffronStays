@@ -1,30 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { motion } from "framer-motion";
-
-// const CustomCursor = () => {
-//   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-//   useEffect(() => {
-//     const updateMousePos = (e) => {
-//       setMousePos({ x: e.clientX, y: e.clientY });
-//     };
-
-//     window.addEventListener("mousemove", updateMousePos);
-//     return () => window.removeEventListener("mousemove", updateMousePos);
-//   }, []);
-
-//   return (
-//     <motion.div
-//       className="custom-cursor z-[100]"
-//       animate={{ x: mousePos.x - 15, y: mousePos.y - 15 }}
-//       transition={{ type: "tween", ease: "linear", duration: 0.1 }}
-//     />
-//   );
-// };
-
-// export default CustomCursor;
-
-
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 

@@ -102,7 +102,7 @@ const ProductDetailSection1 = () => {
                 // Remove from bookmark
                 const response = await axios.delete(`http://localhost:5000/bookmark/${val.id && val.stayType}`);
                 if (response.status === 200) {
-                    updatedBookmark = updatedBookmark.filter((item) => item !== val.stayType  ); // Correct removal
+                    updatedBookmark = updatedBookmark.filter((item) => item !== val.stayType); // Correct removal
                     setAddBookmark(updatedBookmark);
                 } else {
                     toast.error("Failed to remove from bookmark. Please try again.");
@@ -145,7 +145,7 @@ const ProductDetailSection1 = () => {
                     transportation: val.transportation,
                     healthAndSafety: val.healthAndSafety,
                     uniqueFeatures: val.uniqueFeatures,
-                    stayType:stayType,
+                    stayType: stayType,
                     quantity: 1,
                 });
 
@@ -161,8 +161,8 @@ const ProductDetailSection1 = () => {
             toast.error('Something went wrong. Please try again.');
         }
     };
-    
-    
+
+
 
     // Fetch bookmarked stays on component mount
     useEffect(() => {
@@ -278,25 +278,25 @@ const ProductDetailSection1 = () => {
                     <Typography variant="h6" sx={{ textDecoration: "line-through", color: "gray" }}> ₹{val?.prices?.actual} </Typography>
                 </Box>
                 {/* Address */}
-                <Box sx={{pt:3,pb:3,pl:1 ,width: "100%", height: "auto",bgcolor: theme === 'dark'? '#292A2D' : 'white',color: theme === "dark" ? "white" : "black", borderRadius: "10px", mt: 3, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <Box sx={{ pt: 3, pb: 3, pl: 1, width: "100%", height: "auto", bgcolor: theme === 'dark' ? '#292A2D' : 'white', color: theme === "dark" ? "white" : "black", borderRadius: "10px", mt: 3, display: "flex", flexDirection: "column", justifyContent: "center" }}>
                     <Box sx={{ display: "flex", gap: 2, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700" ,color: theme === "dark" ? "white" : "black",}}>Address:</Typography>
-                        <Typography sx={{  color:theme==='dark' ?"white":"#5B7830" }}> {val?.address?.tal}-{val?.address?.dist} </Typography>
-                        <Typography sx={{ color:theme==='dark' ?"white":"#5B7830"  }}> <LocationOnIcon /> </Typography>
+                        <Typography sx={{ fontWeight: "700", color: theme === "dark" ? "white" : "black", }}>Address:</Typography>
+                        <Typography sx={{ color: theme === 'dark' ? "white" : "#5B7830" }}> {val?.address?.tal}-{val?.address?.dist} </Typography>
+                        <Typography sx={{ color: theme === 'dark' ? "white" : "#5B7830" }}> <LocationOnIcon /> </Typography>
                     </Box>
                     <Box sx={{ display: "flex", gap: 1, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700",color: theme === "dark" ? "white" : "black", }}>Activities:</Typography>
+                        <Typography sx={{ fontWeight: "700", color: theme === "dark" ? "white" : "black", }}>Activities:</Typography>
                         <Typography sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                             {val?.activitiesDetails?.map((val, i) => (
-                                <Typography key={i} sx={{  color:theme==='dark' ?"white":"#5B7830", }}> {val?.name}</Typography>
+                                <Typography key={i} sx={{ color: theme === 'dark' ? "white" : "#5B7830", }}> {val?.name}</Typography>
                             ))}
                         </Typography>
                     </Box>
                     <Box sx={{ width: "100%", height: "auto", display: "flex", gap: 0.5, p: 1 }}>
-                        <Typography sx={{ fontWeight: "700", width: "150px",color: theme === "dark" ? "white" : "black", }}>Local Attractions:</Typography>
+                        <Typography sx={{ fontWeight: "700", width: "150px", color: theme === "dark" ? "white" : "black", }}>Local Attractions:</Typography>
                         <Typography sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                             {val?.localAttractions?.map((val, i) => (
-                                <Typography key={i} sx={{  color:theme==='dark' ?"white":"#5B7830",}}> {val?.name}</Typography>
+                                <Typography key={i} sx={{ color: theme === 'dark' ? "white" : "#5B7830", }}> {val?.name}</Typography>
                             ))}
                         </Typography>
                     </Box>
@@ -304,9 +304,9 @@ const ProductDetailSection1 = () => {
                 {/* Special Packages */}
                 <Box sx={{ mt: 3 }}>
                     <Typography sx={{ fontWeight: "700", mb: 1 }}>Special Packages</Typography>
-                    <Box sx={{ display: "flex", gap: 2,color:"black" }}>
+                    <Box sx={{ display: "flex", gap: 2, color: "black" }}>
                         {val?.specialPackages?.map((val, i) => (
-                            <Box key={i} sx={{ bgcolor: theme === 'dark'? '#292A2D' : 'white',color: theme === "dark" ? "white" : "balck", width: { xs: "33%", lg: "32%" }, height: "12vh",borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: { xs: "center", lg: "center" }, justifyContent: "center",p:2 }}>
+                            <Box key={i} sx={{ bgcolor: theme === 'dark' ? '#292A2D' : 'white', color: theme === "dark" ? "white" : "balck", width: { xs: "33%", lg: "32%" }, height: "12vh", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: { xs: "center", lg: "center" }, justifyContent: "center", p: 2 }}>
                                 <Typography sx={{ textAlign: "center" }}> {val.name} </Typography>
                                 <Typography sx={{ fontWeight: "700" }}> ₹ {val.price} </Typography>
                             </Box>
@@ -318,14 +318,14 @@ const ProductDetailSection1 = () => {
                     <Button
                         variant="contained"
                         onClick={() => handleAddToCart(val)}
-                        sx={{ width: "50%", height: "8vh", backgroundColor: theme === "dark" ? "white" : "black",color: theme === "dark" ? "black" : "white", display: "flex", gap: { xs: 0, lg: 2 } }} >
+                        sx={{ width: "50%", height: "8vh", backgroundColor: theme === "dark" ? "white" : "black", color: theme === "dark" ? "black" : "white", display: "flex", gap: { xs: 0, lg: 2 } }} >
                         <ShoppingBagIcon sx={{ color: theme === "dark" ? "black" : "white", }} />
                         Book Now
                     </Button>
                     <Button
                         variant="contained"
                         onClick={() => toggleBookmark(val)}
-                        sx={{ width: "50%", height: "8vh",  backgroundColor: theme === "dark" ? "white" : "black",color: theme === "dark" ? "black" : "white", display: "flex", gap: 2 }}
+                        sx={{ width: "50%", height: "8vh", backgroundColor: theme === "dark" ? "white" : "black", color: theme === "dark" ? "black" : "white", display: "flex", gap: 2 }}
                     >
                         <BookmarkIcon
                             className={`${addBookmark.includes(val?.stayType) ? "color-white" : "text-gray-400"} transition-colors duration-200`}

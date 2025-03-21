@@ -55,8 +55,8 @@ const TentsContext = ({ children }) => {
     },[])
     
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/tents")
-        // axios.get("http://localhost:5000/tents")
+        // axios.get("http://116.75.62.44:5000/tents")
+        axios.get("http://localhost:5000/tents")
             .then((resp) => {
                 setAllTents(resp.data);
                 setFilteredStays(resp.data)
@@ -64,8 +64,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/homeStays")
-        // axios.get("http://localhost:5000/homestays")
+        // axios.get("http://116.75.62.44:5000/homeStays")
+        axios.get("http://localhost:5000/homestays")
             .then((resp) => {
                 setAllHomestays(resp.data);
                 setFilteredStays(resp.data);
@@ -73,8 +73,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/hotels")
-        // axios.get("http://localhost:5000/hotels")
+        // axios.get("http://116.75.62.44:5000/hotels")
+        axios.get("http://localhost:5000/hotels")
             .then((resp) => {
                 setAllHotels(resp.data);
                 setFilteredHotels(resp.data);
@@ -82,8 +82,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/camps")
-        // axios.get("http://localhost:5000/camps")
+        // axios.get("http://116.75.62.44:5000/camps")
+        axios.get("http://localhost:5000/camps")
             .then((resp) => {
                 setAllCamps(resp.data);
                 // setFilteredHotels(resp.data);
@@ -91,8 +91,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-      axios.get("http://116.75.62.44:5000/farmhouses")
-        // axios.get("http://localhost:5000/farmhouses")
+    //   axios.get("http://116.75.62.44:5000/farmhouses")
+        axios.get("http://localhost:5000/farmhouses")
             .then((resp) => {
                 setAllFarmHouses(resp.data);
                 // setFilteredHotels(resp.data);
@@ -100,8 +100,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-         axios.get("http://116.75.62.44:5000/villas")
-        // axios.get("http://localhost:5000/villas")
+        //  axios.get("http://116.75.62.44:5000/villas")
+        axios.get("http://localhost:5000/villas")
             .then((resp) => {
                 setAllVillas(resp.data);
                 // setFilteredHotels(resp.data);
@@ -109,8 +109,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-         axios.get("http://116.75.62.44:5000/apartments")
-        // axios.get("http://localhost:5000/apartments")
+        //  axios.get("http://116.75.62.44:5000/apartments")
+        axios.get("http://localhost:5000/apartments")
             .then((resp) => {
                 setAllApartments(resp.data);
                 // setFilteredHotels(resp.data);
@@ -118,8 +118,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/cottages")
-        // axios.get("http://localhost:5000/cottages")
+        // axios.get("http://116.75.62.44:5000/cottages")
+        axios.get("http://localhost:5000/cottages")
             .then((resp) => {
                 setAllCottages(resp.data);
                 // setFilteredHotels(resp.data);
@@ -127,8 +127,8 @@ const TentsContext = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        axios.get("http://116.75.62.44:5000/treehouses")
-        // axios.get("http://localhost:5000/treehouses")
+        // axios.get("http://116.75.62.44:5000/treehouses")
+        axios.get("http://localhost:5000/treehouses")
             .then((resp) => {
                 setAllTreeHouses(resp.data);
                 // setFilteredHotels(resp.data);
@@ -576,3 +576,103 @@ const TentsContext = ({ children }) => {
 }
 
 export default TentsContext
+
+
+
+// import axios from 'axios';
+// import React, { createContext, useEffect, useState } from 'react';
+
+// export let staysContext = createContext();
+
+// const TentsContext = ({ children }) => {
+//     const [isLoggedIn, setIsLoggedIn] = useState(false); // login details
+//     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false); // login details
+//     const [admin , setAdmin] = useState([])
+//     const [userDetails, setUserDetails] = useState("");
+//     const [allTents, setAllTents] = useState([]);
+//     const [allHotels, setAllHotels] = useState([]);
+//     const [allHomeStays, setAllHomestays] = useState([]);
+//     const [allCamps, setAllCamps] = useState([]);
+//     const [allVillas, setAllVillas] = useState([]);
+//     const [allFarmHouses, setAllFarmHouses] = useState([]);
+//     const [allTreeHouses, setAllTreeHouses] = useState([]);
+//     const [allCottages, setAllCottages] = useState([]);
+//     const [allApartments, setAllApartments] = useState([]);
+//     const [filteredStays, setFilteredStays] = useState([]);
+//     const [filteredHotels, setFilteredHotels] = useState([]);
+//     const [filteredHomestays, setFilteredHomestays] = useState([]);
+//     const [filteredCamps, setFilteredCamps] = useState([]);
+//     const [filteredVillas, setFilteredVillas] = useState([]);
+//     const [filteredApartments, setFilteredApartments] = useState([]);
+//     const [filteredFarmhouse, setFilteredFarmhouses] = useState([]);
+//     const [filteredTreeHouses, setFilteredTreeHouses] = useState([]);
+//     const [filteredCottages, setFilteredCottages] = useState([]);
+//     const [ratings, setRatings] = useState([]);
+//     const [sortPrice, setSortPrice] = useState([]);
+//     const [sortAmenities, setSortAmenities] = useState([]);
+//     const [sortCapacity, setSortCapacity] = useState([]);
+//     const [sortLocation, setSortLocation] = useState([]);
+//     const [search, setSearch] = useState("");
+//     const [addBookmark , setAddBookmark] = useState([]);
+//     const [addCart , setAddCart] = useState([]);
+//     const [bookingData, setBookingData] = useState([])
+//     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+//     const [ confirmOrder, setConfirmOrder] = useState(false);
+    
+
+//         useEffect(() => {
+//         document.body.className = theme;  
+//         localStorage.setItem('theme', theme); 
+//     }, [theme]);
+
+//     const toggleTheme = () => {
+//         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+//     };
+
+//     const [loading, setLoading] = useState(true);
+//     const GIST_URL = "https://gist.githubusercontent.com/adityanathe2002/b528144c38f953896e28a449900911a6/raw/2e6603c9dead79d2e8e0aab6aa471819a696fd01/saffronstays.json";
+
+//     useEffect(() => {
+//         axios.get(GIST_URL)
+//             .then((resp) => {
+//                 setAllStays(resp.data);
+//                 setFilteredStays(resp.data);
+
+//                 // 🔹 Filter Stays by Type
+//                 setAllTents(resp.data.filter(stay => stay.type === "Tent"));
+//                 setAllHotels(resp.data.filter(stay => stay.type === "Hotel"));
+//                 setAllHomestays(resp.data.filter(stay => stay.type === "HomeStay"));
+//                 setAllCamps(resp.data.filter(stay => stay.type === "Camp"));
+//                 setAllVillas(resp.data.filter(stay => stay.type === "Villa"));
+//                 setAllFarmHouses(resp.data.filter(stay => stay.type === "FarmHouse"));
+//                 setAllTreeHouses(resp.data.filter(stay => stay.type === "TreeHouse"));
+//                 setAllCottages(resp.data.filter(stay => stay.type === "Cottage"));
+//                 setAllApartments(resp.data.filter(stay => stay.type === "Apartment"));
+
+//                 setLoading(false);
+//             })
+//             .catch((error) => {
+//                 console.error("Error fetching stays data:", error);
+//                 setLoading(false);
+//             });
+//     }, []);
+
+//     return (
+//         <staysContext.Provider value={{
+//             allTents, allHomeStays, allHotels, allVillas, allApartments,
+//                         allCamps, allCottages, allFarmHouses, allTreeHouses, ratings, setRatings,
+//                         sortPrice, setSortPrice, sortAmenities, setSortAmenities,
+//                         sortLocation, setSortLocation, filteredStays, filteredHotels,
+//                         search, setSearch, filteredCamps, filteredVillas, filteredHomestays,
+//                         filteredFarmhouse, filteredTreeHouses, filteredApartments, filteredCottages,
+//                         admin,setAdmin,isLoggedIn, setIsLoggedIn, userDetails,setUserDetails,
+//                         addBookmark , setAddBookmark,addCart , setAddCart,isAdminLoggedIn, setIsAdminLoggedIn,
+//                         bookingData, setBookingData,theme, toggleTheme,  confirmOrder, setConfirmOrder,
+//             loading
+//         }}>
+//             {children}
+//         </staysContext.Provider>
+//     );
+// }
+
+// export default TentsContext;

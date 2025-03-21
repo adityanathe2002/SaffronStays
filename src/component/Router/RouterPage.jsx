@@ -42,7 +42,7 @@ export let routingPage = createBrowserRouter([
     },
     { path: "/register", element: <SignUp /> },
     { path: "/login", element: <SignIn /> },
-    { path: "/admin-dash2", element: <AdminPage /> },
+    { path: "/admin-dash", element: <AdminPage /> },
     {
         path: "*",
         element: (

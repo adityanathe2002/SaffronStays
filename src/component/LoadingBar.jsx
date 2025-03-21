@@ -3,7 +3,6 @@ import { Skeleton, Box, Grid, Card, CardContent, AppBar, Toolbar, Container, Lin
 
 const LoadingBar = () => {
 
-
   return (
     <Box sx={{ width: "100%" }}>
     <LinearProgress variant="determinate" value={""}  />
