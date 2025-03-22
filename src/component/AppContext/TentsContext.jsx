@@ -1,3 +1,583 @@
+// import axios from 'axios';
+// import React, { createContext, useEffect, useState } from 'react'
+
+// export let staysContext = createContext();
+
+// const TentsContext = ({ children }) => {
+//     const [isLoggedIn, setIsLoggedIn] = useState(false); // login details
+//     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false); // login details
+//     const [admin , setAdmin] = useState([])
+//     const [userDetails, setUserDetails] = useState("");
+//     const [allTents, setAllTents] = useState([]);
+//     const [allHotels, setAllHotels] = useState([]);
+//     const [allHomeStays, setAllHomestays] = useState([]);
+//     const [allCamps, setAllCamps] = useState([]);
+//     const [allVillas, setAllVillas] = useState([]);
+//     const [allFarmHouses, setAllFarmHouses] = useState([]);
+//     const [allTreeHouses, setAllTreeHouses] = useState([]);
+//     const [allCottages, setAllCottages] = useState([]);
+//     const [allApartments, setAllApartments] = useState([]);
+//     const [filteredStays, setFilteredStays] = useState([]);
+//     const [filteredHotels, setFilteredHotels] = useState([]);
+//     const [filteredHomestays, setFilteredHomestays] = useState([]);
+//     const [filteredCamps, setFilteredCamps] = useState([]);
+//     const [filteredVillas, setFilteredVillas] = useState([]);
+//     const [filteredApartments, setFilteredApartments] = useState([]);
+//     const [filteredFarmhouse, setFilteredFarmhouses] = useState([]);
+//     const [filteredTreeHouses, setFilteredTreeHouses] = useState([]);
+//     const [filteredCottages, setFilteredCottages] = useState([]);
+//     const [ratings, setRatings] = useState([]);
+//     const [sortPrice, setSortPrice] = useState([]);
+//     const [sortAmenities, setSortAmenities] = useState([]);
+//     const [sortCapacity, setSortCapacity] = useState([]);
+//     const [sortLocation, setSortLocation] = useState([]);
+//     const [search, setSearch] = useState("");
+//     const [addBookmark , setAddBookmark] = useState([]);
+//     const [addCart , setAddCart] = useState([]);
+//     const [bookingData, setBookingData] = useState([])
+//     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+//     const [ confirmOrder, setConfirmOrder] = useState(false);
+    
+
+//     useEffect(() => {
+//         document.body.className = theme;  
+//         localStorage.setItem('theme', theme); 
+//     }, [theme]);
+
+//     const toggleTheme = () => {
+//         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+//     };
+    
+//     useEffect(()=>{
+//         axios.get("http://localhost:5000/admin").then((resp)=>{
+//             setAdmin(resp.data)
+//         }).catch((error)=>{console.log(error)})
+//     },[])
+    
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/tents")
+//         axios.get("http://localhost:5000/tents")
+//             .then((resp) => {
+//                 setAllTents(resp.data);
+//                 setFilteredStays(resp.data)
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/homeStays")
+//         axios.get("http://localhost:5000/homestays")
+//             .then((resp) => {
+//                 setAllHomestays(resp.data);
+//                 setFilteredStays(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/hotels")
+//         axios.get("http://localhost:5000/hotels")
+//             .then((resp) => {
+//                 setAllHotels(resp.data);
+//                 setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/camps")
+//         axios.get("http://localhost:5000/camps")
+//             .then((resp) => {
+//                 setAllCamps(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//     //   axios.get("http://116.75.62.44:5000/farmhouses")
+//         axios.get("http://localhost:5000/farmhouses")
+//             .then((resp) => {
+//                 setAllFarmHouses(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         //  axios.get("http://116.75.62.44:5000/villas")
+//         axios.get("http://localhost:5000/villas")
+//             .then((resp) => {
+//                 setAllVillas(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         //  axios.get("http://116.75.62.44:5000/apartments")
+//         axios.get("http://localhost:5000/apartments")
+//             .then((resp) => {
+//                 setAllApartments(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/cottages")
+//         axios.get("http://localhost:5000/cottages")
+//             .then((resp) => {
+//                 setAllCottages(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         // axios.get("http://116.75.62.44:5000/treehouses")
+//         axios.get("http://localhost:5000/treehouses")
+//             .then((resp) => {
+//                 setAllTreeHouses(resp.data);
+//                 // setFilteredHotels(resp.data);
+//             }).catch((error) => { console.log(error) })
+//     }, [])
+
+//     useEffect(() => {
+//         let filteredItems = [...allTents];
+
+//         if (search) {
+//             filteredItems = filteredItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredItems = filteredItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredItems = filteredItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredItems = filteredItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredItems = filteredItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredStays(filteredItems);
+//     }, [allTents, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredHotelsItems = [...allHotels];
+
+//         if (sortPrice.length > 0) {
+//             filteredHotelsItems = filteredHotelsItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredHotelsItems = filteredHotelsItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredHotelsItems = filteredHotelsItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredHotelsItems = filteredHotelsItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredHotels(filteredHotelsItems);
+//     }, [allHotels, sortPrice, sortAmenities, ratings, sortLocation]);
+
+//     useEffect(() => {
+//         let filteredHomestaysItems = [...allHomeStays];
+
+//         if (sortPrice.length > 0) {
+//             filteredHomestaysItems = filteredHomestaysItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredHomestaysItems = filteredHomestaysItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredHomestaysItems = filteredHomestaysItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredHomestaysItems = filteredHomestaysItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredHomestays(filteredHomestaysItems);
+//     }, [allHomeStays, sortPrice, sortAmenities, ratings, sortLocation]);
+
+//     useEffect(() => {
+//         let filteredCampItems = [...allCamps];
+
+//         if (search) {
+//             filteredCampItems = filteredCampItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredCampItems = filteredCampItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredCampItems = filteredCampItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredCampItems = filteredCampItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredCampItems = filteredCampItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredCamps(filteredCampItems);
+//     }, [allCamps, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredVillasItems = [...allVillas];
+
+//         if (search) {
+//             filteredVillasItems = filteredVillasItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredVillasItems = filteredVillasItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredVillasItems = filteredVillasItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredVillasItems = filteredVillasItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredVillasItems = filteredVillasItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredVillas(filteredVillasItems);
+//     }, [allVillas, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredApartmentsItems = [...allApartments];
+
+//         if (search) {
+//             filteredApartmentsItems = filteredApartmentsItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredApartmentsItems = filteredApartmentsItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredApartmentsItems = filteredApartmentsItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredApartmentsItems = filteredApartmentsItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredApartmentsItems = filteredApartmentsItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredApartments(filteredApartmentsItems);
+//     }, [allApartments, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredFarmhousesItems = [...allFarmHouses];
+
+//         if (search) {
+//             filteredFarmhousesItems = filteredFarmhousesItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredFarmhousesItems = filteredFarmhousesItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredFarmhousesItems = filteredFarmhousesItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredFarmhousesItems = filteredFarmhousesItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredFarmhousesItems = filteredFarmhousesItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredFarmhouses(filteredFarmhousesItems);
+//     }, [allFarmHouses, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredTreeHousesItems = [...allTreeHouses];
+
+//         if (search) {
+//             filteredTreeHousesItems = filteredTreeHousesItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredTreeHousesItems = filteredTreeHousesItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredTreeHousesItems = filteredTreeHousesItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredTreeHousesItems = filteredTreeHousesItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredTreeHousesItems = filteredTreeHousesItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredTreeHouses(filteredTreeHousesItems);
+//     }, [allTreeHouses, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     useEffect(() => {
+//         let filteredCottagesItems = [...allCottages];
+
+//         if (search) {
+//             filteredCottagesItems = filteredCottagesItems.filter(stays =>
+//                 stays.address.dist.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.campName.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.address.tal.toLowerCase().includes(search.toLowerCase()) ||
+//                 stays.freeServices.includes(search)
+//             );
+//         }
+
+//         if (sortPrice.length > 0) {
+//             filteredCottagesItems = filteredCottagesItems.filter(stay => {
+//                 const price = stay.prices?.afterDiscount || 0;
+
+//                 return sortPrice.some((range) => {
+//                     if (range.includes("Under")) {
+//                         const max = Number(range.replace(/\D/g, "")); // Extract number (₹5000 → 5000)
+//                         return price < max;
+//                     }
+//                     if (range.includes("Above")) {
+//                         const min = Number(range.replace(/\D/g, "")); // Extract number (₹15000 → 15000)
+//                         return price > min;
+//                     }
+//                     const [min, max] = range.replace(/₹/g, "").split(" - ").map(Number);
+//                     return price >= min && price <= max;
+//                 });
+//             });
+//         }
+//         if (sortAmenities.length > 0) {
+//             filteredCottagesItems = filteredCottagesItems.filter(val =>
+//                 val.freeServices && sortAmenities.some(amenity => val.freeServices.includes(amenity))
+//             );
+//         }
+//         if (ratings.length > 0) {
+//             filteredCottagesItems = filteredCottagesItems.filter(val => {
+//                 return val.ratings.location && val.ratings.location >= parseFloat(ratings);
+//             });
+//         }
+//         if (sortLocation.length > 0) {
+//             filteredCottagesItems = filteredCottagesItems.filter(val =>
+//                 val.address.dist && sortLocation.some(location => val.address.dist.includes(location))
+//             );
+//         }
+
+//         setFilteredCottages(filteredCottagesItems);
+//     }, [allCottages, sortPrice, sortAmenities, ratings, sortLocation, search]);
+
+//     return (
+//         <staysContext.Provider value={{
+//             allTents, allHomeStays, allHotels, allVillas, allApartments,
+//             allCamps, allCottages, allFarmHouses, allTreeHouses, ratings, setRatings,
+//             sortPrice, setSortPrice, sortAmenities, setSortAmenities,
+//             sortLocation, setSortLocation, filteredStays, filteredHotels,
+//             search, setSearch, filteredCamps, filteredVillas, filteredHomestays,
+//             filteredFarmhouse, filteredTreeHouses, filteredApartments, filteredCottages,
+//             admin,setAdmin,isLoggedIn, setIsLoggedIn, userDetails,setUserDetails,
+//             addBookmark , setAddBookmark,addCart , setAddCart,isAdminLoggedIn, setIsAdminLoggedIn,
+//             bookingData, setBookingData,theme, toggleTheme,  confirmOrder, setConfirmOrder
+//         }}>
+//             {children}
+//         </staysContext.Provider>
+//     )
+// }
+
+// export default TentsContext
+
+
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
 
@@ -37,7 +617,42 @@ const TentsContext = ({ children }) => {
     const [bookingData, setBookingData] = useState([])
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [ confirmOrder, setConfirmOrder] = useState(false);
-    
+    const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            "https://gist.githubusercontent.com/adityanathe2002/b528144c38f953896e28a449900911a6/raw/2e6603c9dead79d2e8e0aab6aa471819a696fd01/saffronstays.json"
+          );
+          // Assuming the response.data contains all stay types
+          setAllTents(response.data.tents || []);
+          setAllHotels(response.data.hotels || []);
+          setAllHomestays(response.data.homestays || []);
+          setAllCamps(response.data.camps || []);
+          setAllVillas(response.data.villas || []);
+          setAllFarmHouses(response.data.farmhouses || []);
+          setAllTreeHouses(response.data.treehouses || []);
+          setAllCottages(response.data.cottages || []);
+          setAllApartments(response.data.apartments || []);
+          setAdmin(response.data.admin || [] ); 
+          
+          // Set initial filtered states
+          setFilteredStays(response.data.tents || []);
+          setFilteredHotels(response.data.hotels || []);
+          setFilteredHomestays(response.data.homestays || []);
+          setFilteredCamps(response.data.camps || []);
+          setFilteredVillas(response.data.villas || []);
+          setFilteredFarmhouses(response.data.farmhouses || []);
+          setFilteredTreeHouses(response.data.treehouses || []);
+          setFilteredCottages(response.data.cottages || []);
+          setFilteredApartments(response.data.apartments || []);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+    };
+    useEffect(() => {
+        fetchData();
+    }, []); // Empty dependency array means it runs once on mount
+
+
 
     useEffect(() => {
         document.body.className = theme;  
@@ -48,92 +663,77 @@ const TentsContext = ({ children }) => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
     };
     
-    useEffect(()=>{
-        axios.get("http://localhost:5000/admin").then((resp)=>{
-            setAdmin(resp.data)
-        }).catch((error)=>{console.log(error)})
-    },[])
+    // useEffect(()=>{
+    //     axios.get("http://localhost:5000/admin").then((resp)=>{
+    //         setAdmin(resp.data)
+    //     }).catch((error)=>{console.log(error)})
+    // },[])
     
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/tents")
-        axios.get("http://localhost:5000/tents")
-            .then((resp) => {
-                setAllTents(resp.data);
-                setFilteredStays(resp.data)
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/tents")
+    //         .then((resp) => {
+    //             setAllTents(resp.data);
+    //             setFilteredStays(resp.data)
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/homeStays")
-        axios.get("http://localhost:5000/homestays")
-            .then((resp) => {
-                setAllHomestays(resp.data);
-                setFilteredStays(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/homestays")
+    //         .then((resp) => {
+    //             setAllHomestays(resp.data);
+    //             setFilteredStays(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/hotels")
-        axios.get("http://localhost:5000/hotels")
-            .then((resp) => {
-                setAllHotels(resp.data);
-                setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/hotels")
+    //         .then((resp) => {
+    //             setAllHotels(resp.data);
+    //             setFilteredHotels(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/camps")
-        axios.get("http://localhost:5000/camps")
-            .then((resp) => {
-                setAllCamps(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/camps")
+    //         .then((resp) => {
+    //             setAllCamps(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-    //   axios.get("http://116.75.62.44:5000/farmhouses")
-        axios.get("http://localhost:5000/farmhouses")
-            .then((resp) => {
-                setAllFarmHouses(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/farmhouses")
+    //         .then((resp) => {
+    //             setAllFarmHouses(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        //  axios.get("http://116.75.62.44:5000/villas")
-        axios.get("http://localhost:5000/villas")
-            .then((resp) => {
-                setAllVillas(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/villas")
+    //         .then((resp) => {
+    //             setAllVillas(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        //  axios.get("http://116.75.62.44:5000/apartments")
-        axios.get("http://localhost:5000/apartments")
-            .then((resp) => {
-                setAllApartments(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/apartments")
+    //         .then((resp) => {
+    //             setAllApartments(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/cottages")
-        axios.get("http://localhost:5000/cottages")
-            .then((resp) => {
-                setAllCottages(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/cottages")
+    //         .then((resp) => {
+    //             setAllCottages(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
-    useEffect(() => {
-        // axios.get("http://116.75.62.44:5000/treehouses")
-        axios.get("http://localhost:5000/treehouses")
-            .then((resp) => {
-                setAllTreeHouses(resp.data);
-                // setFilteredHotels(resp.data);
-            }).catch((error) => { console.log(error) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:5000/treehouses")
+    //         .then((resp) => {
+    //             setAllTreeHouses(resp.data);
+    //         }).catch((error) => { console.log(error) })
+    // }, [])
 
     useEffect(() => {
         let filteredItems = [...allTents];
@@ -576,103 +1176,3 @@ const TentsContext = ({ children }) => {
 }
 
 export default TentsContext
-
-
-
-// import axios from 'axios';
-// import React, { createContext, useEffect, useState } from 'react';
-
-// export let staysContext = createContext();
-
-// const TentsContext = ({ children }) => {
-//     const [isLoggedIn, setIsLoggedIn] = useState(false); // login details
-//     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false); // login details
-//     const [admin , setAdmin] = useState([])
-//     const [userDetails, setUserDetails] = useState("");
-//     const [allTents, setAllTents] = useState([]);
-//     const [allHotels, setAllHotels] = useState([]);
-//     const [allHomeStays, setAllHomestays] = useState([]);
-//     const [allCamps, setAllCamps] = useState([]);
-//     const [allVillas, setAllVillas] = useState([]);
-//     const [allFarmHouses, setAllFarmHouses] = useState([]);
-//     const [allTreeHouses, setAllTreeHouses] = useState([]);
-//     const [allCottages, setAllCottages] = useState([]);
-//     const [allApartments, setAllApartments] = useState([]);
-//     const [filteredStays, setFilteredStays] = useState([]);
-//     const [filteredHotels, setFilteredHotels] = useState([]);
-//     const [filteredHomestays, setFilteredHomestays] = useState([]);
-//     const [filteredCamps, setFilteredCamps] = useState([]);
-//     const [filteredVillas, setFilteredVillas] = useState([]);
-//     const [filteredApartments, setFilteredApartments] = useState([]);
-//     const [filteredFarmhouse, setFilteredFarmhouses] = useState([]);
-//     const [filteredTreeHouses, setFilteredTreeHouses] = useState([]);
-//     const [filteredCottages, setFilteredCottages] = useState([]);
-//     const [ratings, setRatings] = useState([]);
-//     const [sortPrice, setSortPrice] = useState([]);
-//     const [sortAmenities, setSortAmenities] = useState([]);
-//     const [sortCapacity, setSortCapacity] = useState([]);
-//     const [sortLocation, setSortLocation] = useState([]);
-//     const [search, setSearch] = useState("");
-//     const [addBookmark , setAddBookmark] = useState([]);
-//     const [addCart , setAddCart] = useState([]);
-//     const [bookingData, setBookingData] = useState([])
-//     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-//     const [ confirmOrder, setConfirmOrder] = useState(false);
-    
-
-//         useEffect(() => {
-//         document.body.className = theme;  
-//         localStorage.setItem('theme', theme); 
-//     }, [theme]);
-
-//     const toggleTheme = () => {
-//         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-//     };
-
-//     const [loading, setLoading] = useState(true);
-//     const GIST_URL = "https://gist.githubusercontent.com/adityanathe2002/b528144c38f953896e28a449900911a6/raw/2e6603c9dead79d2e8e0aab6aa471819a696fd01/saffronstays.json";
-
-//     useEffect(() => {
-//         axios.get(GIST_URL)
-//             .then((resp) => {
-//                 setAllStays(resp.data);
-//                 setFilteredStays(resp.data);
-
-//                 // 🔹 Filter Stays by Type
-//                 setAllTents(resp.data.filter(stay => stay.type === "Tent"));
-//                 setAllHotels(resp.data.filter(stay => stay.type === "Hotel"));
-//                 setAllHomestays(resp.data.filter(stay => stay.type === "HomeStay"));
-//                 setAllCamps(resp.data.filter(stay => stay.type === "Camp"));
-//                 setAllVillas(resp.data.filter(stay => stay.type === "Villa"));
-//                 setAllFarmHouses(resp.data.filter(stay => stay.type === "FarmHouse"));
-//                 setAllTreeHouses(resp.data.filter(stay => stay.type === "TreeHouse"));
-//                 setAllCottages(resp.data.filter(stay => stay.type === "Cottage"));
-//                 setAllApartments(resp.data.filter(stay => stay.type === "Apartment"));
-
-//                 setLoading(false);
-//             })
-//             .catch((error) => {
-//                 console.error("Error fetching stays data:", error);
-//                 setLoading(false);
-//             });
-//     }, []);
-
-//     return (
-//         <staysContext.Provider value={{
-//             allTents, allHomeStays, allHotels, allVillas, allApartments,
-//                         allCamps, allCottages, allFarmHouses, allTreeHouses, ratings, setRatings,
-//                         sortPrice, setSortPrice, sortAmenities, setSortAmenities,
-//                         sortLocation, setSortLocation, filteredStays, filteredHotels,
-//                         search, setSearch, filteredCamps, filteredVillas, filteredHomestays,
-//                         filteredFarmhouse, filteredTreeHouses, filteredApartments, filteredCottages,
-//                         admin,setAdmin,isLoggedIn, setIsLoggedIn, userDetails,setUserDetails,
-//                         addBookmark , setAddBookmark,addCart , setAddCart,isAdminLoggedIn, setIsAdminLoggedIn,
-//                         bookingData, setBookingData,theme, toggleTheme,  confirmOrder, setConfirmOrder,
-//             loading
-//         }}>
-//             {children}
-//         </staysContext.Provider>
-//     );
-// }
-
-// export default TentsContext;
