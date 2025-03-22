@@ -3,7 +3,6 @@ import React, { useContext, useState, useReducer, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { staysContext } from "../AppContext/TentsContext";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import axios from "axios";
 import toast from "react-hot-toast";
 import Login from '../../assets/Register/login.jpg';
 
@@ -43,13 +42,9 @@ const SignIn = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/users")
-            .then(response => {
-                dispatch({ type: "SET_USERS", value: response.data });
-            })
-            .catch(error => {
-                console.error("Error fetching users:", error);
-            });
+        // Fetch users from localStorage instead of an API call
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+        dispatch({ type: "SET_USERS", value: storedUsers });
     }, []);
 
     const handleChange = (e) => {
@@ -109,9 +104,9 @@ const SignIn = () => {
     return (
         <Box sx={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(${Login})`, backgroundSize: "cover", backgroundPosition: "center" }}>
             <Box sx={{ width: { xs: "90%", sm: "60%", md: "40%" }, p: 3, bgcolor: "white", opacity: "0.8", boxShadow: 3, borderRadius: 2 }}>
-                <Typography variant="h6" sx={{ textAlign: "center", mb: 2, fontWeight: "bold", color: theme === "dark" ? "black" : "black", }}>Sign In</Typography>
-                <Typography variant="h4" sx={{ textAlign: "center", mb: 0.5, fontWeight: "bold", color:"black" }}>Welcome Back</Typography>
-                <Typography variant="body2" sx={{ textAlign: "center", mb: 2,color:"black"  }}>Please enter your details</Typography>
+                <Typography variant="h6" sx={{ textAlign: "center", mb: 2, fontWeight: "bold", color: theme === "dark" ? "black" : "black" }}>Sign In</Typography>
+                <Typography variant="h4" sx={{ textAlign: "center", mb: 0.5, fontWeight: "bold", color: "black" }}>Welcome Back</Typography>
+                <Typography variant="body2" sx={{ textAlign: "center", mb: 2, color: "black" }}>Please enter your details</Typography>
                 {state.error && <Typography sx={{ color: "red", textAlign: "center", mb: 2 }}>{state.error}</Typography>}
                 <form onSubmit={handleSubmit}>
                     <TextField label="Email" name="email" type="email" variant="outlined" fullWidth sx={{ mb: 2 }} onChange={handleChange} value={state.email} />
@@ -135,7 +130,7 @@ const SignIn = () => {
                         }}
                     />
 
-                    <Box sx={{ display: "flex",color:"black" , justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+                    <Box sx={{ display: "flex", color: "black", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
                         <FormControlLabel
                             control={<Checkbox checked={state.rememberMe} onChange={(e) => dispatch({ type: "SET_REMEMBER_ME", value: e.target.checked })} />}
                             label="Remember Me"
@@ -146,7 +141,7 @@ const SignIn = () => {
                     </Box>
 
                     <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: "#464646", color: "white", p: 1.5, "&:hover": { bgcolor: "#202020" } }}>Sign In</Button>
-                    <Typography sx={{ textAlign: "center", mt: 2,color:"black"  }}>Don't have an account? <Link to="/register">Sign Up</Link></Typography>
+                    <Typography sx={{ textAlign: "center", mt: 2, color: "black" }}>Don't have an account? <Link to="/register">Sign Up</Link></Typography>
                 </form>
             </Box>
         </Box>

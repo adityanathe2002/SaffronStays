@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography, Avatar, Card, CardContent, Button, TextField, Select, MenuItem, LinearProgress } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { staysContext } from "../AppContext/TentsContext";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
@@ -28,15 +27,13 @@ const UserProfile = () => {
   }, [isLoggedIn, navigate]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((resp) => {
-      const matchedUser = resp.data.find((user) => user.email === userDetails.email);
-      if (matchedUser) {
-        setUserData(matchedUser);
-        setFormData(matchedUser);
-      }
-    }).catch((error) => {
-      console.error("Error fetching user data:", error);
-    });
+    // Fetch users from localStorage instead of an API call
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const matchedUser = storedUsers.find((user) => user.email === userDetails.email);
+    if (matchedUser) {
+      setUserData(matchedUser);
+      setFormData(matchedUser);
+    }
   }, [userDetails.email]);
 
   const handleChange = (e) => {
@@ -55,14 +52,24 @@ const UserProfile = () => {
   };
 
   const handleUpdate = () => {
-    axios.put(`http://localhost:5000/users/${userData.id}`, formData)
-      .then((resp) => {
-        setUserData(resp.data);
-        setEditing(false);
-      })
-      .catch((error) => {
-        console.error("Error updating user data:", error);
-      });
+    // Fetch current users from localStorage
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    
+    // Find the index of the user to update
+    const userIndex = storedUsers.findIndex((user) => user.email === userData.email);
+    if (userIndex !== -1) {
+      // Update the user data
+      storedUsers[userIndex] = { ...storedUsers[userIndex], ...formData };
+      
+      // Save the updated array back to localStorage
+      localStorage.setItem("users", JSON.stringify(storedUsers));
+      
+      // Update local state
+      setUserData(storedUsers[userIndex]);
+      setEditing(false);
+    } else {
+      console.error("User not found in localStorage");
+    }
   };
 
   return (

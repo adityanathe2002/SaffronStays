@@ -2,7 +2,6 @@ import React, { useState, useReducer } from "react";
 import { TextField, Button, Box, Typography, IconButton, InputAdornment, Checkbox, FormControlLabel } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Login from "../../assets/Register/login.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -82,7 +81,7 @@ const SignUp = () => {
     return true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
@@ -94,15 +93,25 @@ const SignUp = () => {
     };
 
     try {
-      const existingUser = await axios.get(`http://localhost:5000/users?email=${state.email}`);
-      if (existingUser.data.length > 0) {
+      // Retrieve existing users from localStorage (or initialize an empty array)
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Check if a user with this email already exists
+      const userExists = existingUsers.some((user) => user.email === state.email);
+      if (userExists) {
         dispatch({ type: "SET_ERROR", value: "User with this email already exists!" });
         return;
       }
 
-      await axios.post("http://localhost:5000/users", data, { headers: { "Content-Type": "application/json" } });
+      // Add the new user to the array
+      existingUsers.push(data);
+
+      // Save the updated users array back to localStorage
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+
+      // Show success message and redirect
       dispatch({ type: "SET_SUCCESS", value: "Sign up successful!" });
-      toast.success("Sign Up successful!",{duration: 2000});
+      toast.success("Sign Up successful!", { duration: 2000 });
       setTimeout(() => navigate("/login"), 2000);
     } catch (error) {
       console.error("Signup error:", error);
@@ -124,7 +133,7 @@ const SignUp = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Box sx={{ width: { xs: "90%", sm: "60%", md: "40%" }, p: 3, bgcolor: "white",color:"black" , opacity: 0.8, boxShadow: 3, borderRadius: 3 }}>
+      <Box sx={{ width: { xs: "90%", sm: "60%", md: "40%" }, p: 3, bgcolor: "white", color: "black", opacity: 0.8, boxShadow: 3, borderRadius: 3 }}>
         <Typography variant="h6" sx={{ textAlign: "center", mb: 1, fontWeight: "bold" }}>Sign Up</Typography>
         <Typography variant="h5" sx={{ textAlign: "center", mb: 1, fontWeight: "bold" }}>Welcome To SaffronStays</Typography>
         <Typography variant="body2" sx={{ textAlign: "center", mb: 2, fontWeight: "" }}>Sign up for exclusive offers</Typography>
@@ -141,10 +150,9 @@ const SignUp = () => {
           <Typography sx={{ textAlign: "center", mt: 2 }}>Already a member? <Link to="/login"><Typography variant="p" sx={{ color: "#38BCF8" }}>Sign In</Typography></Link></Typography>
         </form>
       </Box>
+      <Toaster />
     </Box>
   );
 };
+
 export default SignUp;
-
-
-
